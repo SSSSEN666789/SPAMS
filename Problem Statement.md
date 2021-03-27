@@ -1,6 +1,6 @@
 ##### CAU 소프트웨어 공학 팀 SSSSEN 
 
-##### SPAMS(Software Programming Assignment Management System) ([링크][https://nevonprojects.com/education-assignment-project/])
+##### SPAMS(Software Programming Assignment Management System) ([링크](https://nevonprojects.com/education-assignment-project/))
 
 # Problem Statement
 
