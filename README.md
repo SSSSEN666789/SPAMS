@@ -25,6 +25,7 @@ __Gathered Requirements__
 [__User Story__](./Gathered%20Requirements/User%20Story.md)</br>
 
 __Use Case__
+
 [__전체 Use Case 모음__](./Use%20Case/전체%20Use%20Case%20모음.md)</br>
 
 
