@@ -1,6 +1,6 @@
 # Use Case UC-302: 유사도 검사
 
-| | UC-301: 유사도 검사|
+| | UC-302: 유사도 검사|
 | - | - |
 | __Related REQ__          | FR5 |
 | __Initiating Actor__     | initiating actors                                            |
