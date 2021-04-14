@@ -5,7 +5,7 @@
 | __Related REQ__          | FR1, FR2                                                     |
 | __Initiating Actor__     | 교육자                                                       |
 | __Actor's Goal__         | 학생에게 과제를 배부하고, 그 결과를 받아보고, 피드백을 제공  |
-| __Participating Actors__ | 학생, 과제 관리 시스템, 에디터, 과제 알리미                          |
+| __Participating Actors__ | 학생, 과제관리자, 과제 알리미, 에디터                          |
 | __Preconditions__        | 강의실을 개설한 교육자 계정으로 로그인이 되어있어야 함.    |
 | __Postconditions__       | 과제가 생성되고, 교육자와 학생이 해당 과제의 내용을 확인할 수 있음.<br />학생이 과제를 제출할 수 있게 됨. |
 

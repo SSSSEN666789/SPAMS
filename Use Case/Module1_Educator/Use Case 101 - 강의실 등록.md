@@ -5,7 +5,7 @@
 | __Related REQ__          | FR1                                        |
 | __Initiating Actor__     | 교육자                                     |
 | __Actor's Goal__         | 학생들에게 과제를 배부하고, 소통           |
-| __Participating Actors__ | 학생, 강의실 관리 시스템                   |
+| __Participating Actors__ | 학생, 강의실관리자                   |
 | __Preconditions__        | 교육자 계정으로 로그인이 되어 있어야 함. |
 | __Postconditions__       | 강의실이 개설되고 학생들이 등록됨.       |
 
