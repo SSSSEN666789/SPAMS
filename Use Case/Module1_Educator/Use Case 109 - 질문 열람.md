@@ -1,0 +1,24 @@
+# Use Case UC-109: 질문 열람
+
+|                          | UC-109: 질문 열람                               |
+| ------------------------ | ----------------------------------------------- |
+| __Related REQ__          | FR6 FR10                                        |
+| __Initiating Actor__     | 교육자, 학생                                    |
+| __Actor's Goal__         | 질문 게시판에 게시된 질문의 목록과 내용을 확인. |
+| __Participating Actors__ | 질문DB                                          |
+| __Preconditions__        | 강의실에 등록된 학생이 질문을 게시해야함.       |
+| __Postconditions__       | 질문의 내용이 화면에 표시됨.                    |
+
+|      | Flow of Events for Main Success Scenario       |
+| ---- | ---------------------------------------------- |
+| ->   | 1. 질문 게시판 페이지에 접속한다.              |
+| <-   | 2. 질문 DB가 게시물의 목록을 보여준다.         |
+| ->   | 3. 열람하고 답변할 게시물을 선택하여 클릭한다. |
+| <-   | 4. 질문 DB가 해당 게시물의 내용을 보여준다.    |
+
+-------
+
+### Use Case 링크
+
+[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
+

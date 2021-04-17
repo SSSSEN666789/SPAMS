@@ -1,0 +1,23 @@
+# Use Case UC-108: 제출물 코멘트
+
+|                          | UC-108: 제출물 코멘트                                        |
+| ------------------------ | ------------------------------------------------------------ |
+| __Related REQ__          | FR6, FR10                                                    |
+| __Initiating Actor__     | 교육자                                                       |
+| __Actor's Goal__         | 제출한 제출물에 대해 직접적인 피드백 제공                    |
+| __Participating Actors__ | 학생, 제출물 DB                                              |
+| __Preconditions__        | 강의실에 소속된 학생이 해당 과제의 제출물을 제출한 적이 있어야 함. |
+| __Postconditions__       | 교육자가 남긴 코멘트가 학생에게 전달됨.                      |
+
+|      | Flow of Events for Main Success Scenario                     |
+| ---- | ------------------------------------------------------------ |
+|      | 1. Extends 제출물 열람 (UC-105)                              |
+| ->   | 2. 피드백 버튼을 누르고 에디터에 피드백 내용을 입력한다.     |
+| <-   | 3. (a)제출물에 피드백이 기록된다. <br />(b) 과제에 피드백이 기록되었음이 학생에게 알려진다. |
+
+-------
+
+### Use Case 링크
+
+[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
+
