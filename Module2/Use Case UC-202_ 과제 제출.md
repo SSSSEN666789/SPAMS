@@ -5,7 +5,7 @@
 | __Related REQ__          | FR8                                                     |
 | __Initiating Actor__     | 학생                                                       |
 | __Actor's Goal__         | 교육자에게 과제를 제출하여 평가 및 피드백을 받기 위해   |
-| __Participating Actors__ | 학생, 과제 관리 시스템, 과제 알리미                          |
+| __Participating Actors__ | 교육자, 과제 관리자                        |
 | __Preconditions__        | 강의실에 등록된 학생 계정으로 로그인이 되어있어야 함. 교육자가 설정한 마감기한을 지나서는 안됨.    |
 | __Postconditions__       | 과제가 제출되고 교육자와 학생이 제출된 과제물을 확인 할 수 있음. |
 

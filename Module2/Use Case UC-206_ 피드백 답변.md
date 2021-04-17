@@ -5,7 +5,7 @@
 | __Related REQ__          | FR10                                          |
 | __Initiating Actor__     | 학생                                                   |
 | __Actor's Goal__         | 교육자의 피드백에 대한 질문이나 답글을 남기기 위해. |
-| __Participating Actors__ | 과제 관리 시스템, 교육자, 과제 알리미                                          |
+| __Participating Actors__ | 과제 관리자, 교육자, 에디터                                          |
 | __Preconditions__        | 교육자가 해당 학생의 제출물에 피드백을 남긴적이 있어야 함.              |
 | __Postconditions__       | 교육자에게 학생이 남긴 답변이 전달됨.            |
 

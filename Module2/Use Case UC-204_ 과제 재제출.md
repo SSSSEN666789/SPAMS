@@ -5,7 +5,7 @@
 | __Related REQ__          | FR8                                        |
 | __Initiating Actor__     | 학생                                     |
 | __Actor's Goal__         |  제출 과정에서 학생의 실수가 있거나 내용상 문제가 있어 수정 후 다시 제출 하기 위해.       |
-| __Participating Actors__ |  과제 관리 시스템,과제 알리미                     |
+| __Participating Actors__ |  과제 관리자                    |
 | __Preconditions__        | 해당 학생의 계정으로 로그인 되어있어야함. 해당 과제가 이미 제출 되어있어야하고, 마감 기한 및 최종 평가가 나오기 전이여야한다. |
 | __Postconditions__       | 제출한 코드 등 제출물을 바탕으로 런타임, 테스트 케이스 등 결과를 도출해냄.    |
 
