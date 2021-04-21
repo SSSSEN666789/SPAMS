@@ -15,12 +15,3 @@
 |      | 2. 필터를 설정한다. (ex)전체 과제에 대한 전체 학생 진행도, 특정 과제에 대한 특정 학생 진행도) |
 | <-   | 3. 필터의 조건에 따라 정보(제출율, 정답비율 등)를 교육자에게 표시한다. |
 
--------
-
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
-
-
-
-

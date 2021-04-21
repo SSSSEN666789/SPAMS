@@ -19,9 +19,3 @@
 |      | __ID 혹은 PW가 잘못된 경우__                      |
 | <-   | 1. ID 혹은 PW가 잘못되었음을 사용자에게 표시한다. |
 
-
-
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
-

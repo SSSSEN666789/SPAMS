@@ -18,9 +18,3 @@
 |      | (b) 알고리즘, 퀴즈 과제인 경우 자동 채점된 결과를 보여준다.  |
 |      | (c) 알고리즘 과제인 경우 다른 제출물들과의 유사도를 보여준다. |
 
--------
-
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
-

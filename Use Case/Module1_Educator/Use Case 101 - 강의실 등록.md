@@ -15,7 +15,3 @@
 |      | 2. 강의실 정보를 입력한다. (강의명, 강의정보, 과제일정 등)   |
 | <-   | 3. (a) 생성된 강의실을 교육자 보여준다. (b) 강의실 DB에 강의실 정보를 등록한다. |
 
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
-

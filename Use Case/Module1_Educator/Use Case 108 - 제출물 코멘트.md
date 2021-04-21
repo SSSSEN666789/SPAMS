@@ -15,9 +15,3 @@
 | ->   | 2. 피드백 버튼을 누르고 에디터에 피드백 내용을 입력한다.     |
 | <-   | 3. (a)제출물에 피드백이 기록된다. <br />(b) 과제에 피드백이 기록되었음이 학생에게 알려진다. |
 
--------
-
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
-

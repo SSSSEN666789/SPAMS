@@ -16,9 +16,3 @@
 | ->   | 3. 열람하고 답변할 게시물을 선택하여 클릭한다. |
 | <-   | 4. 질문 DB가 해당 게시물의 내용을 보여준다.    |
 
--------
-
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
-

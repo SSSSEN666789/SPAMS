@@ -15,9 +15,3 @@
 | ->   | 2. 답변 버튼을 누르고 답변 내용을 입력한다.                  |
 | <-   | 3. (a) 질문에 답변이 기록된다. (b) 질문을 게시한 학생에게 답변이 남겨졌음을 알린다. |
 
--------
-
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
-

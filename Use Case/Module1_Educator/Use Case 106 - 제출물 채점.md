@@ -24,6 +24,3 @@
 | ->   | 1. 점수 반영 버튼을 누르지 않고, 제출물 채점 혹은 수정 버튼을 누르고 점수를 입력한다. |
 | <-   | 2. 제출물의 점수가 기록된다.                                 |
 
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>

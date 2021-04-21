@@ -25,9 +25,3 @@
 |      | 3. 제출한 과제를 수정하고 싶은 경우                          |
 |      | (a) Include UC-103 과제 수정                                 |
 
--------
-
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
-
