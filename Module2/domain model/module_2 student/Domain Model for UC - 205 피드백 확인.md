@@ -34,4 +34,4 @@
 
 ##### Diagram
 -------
-![DM205](Module2/domain model/img/DM205.jpg)
+![DM205](https://github.com/SSSSEN666789/SPAMS/blob/Module2_Haksaeng/Module2/domain%20model/img/DM205.jpg)
