@@ -23,6 +23,8 @@
 | 질문 입력자 | 강의실 ID | 질문을 입력할 강의실의 ID |
 |  | 내용 | 게시판에 입력할 질문 |
 
+
+
 ##### Diagram
 -------
-![DM207](./img/DM207.jpg)
+![DM207](Module2/domain model/img/DM207.jpg)

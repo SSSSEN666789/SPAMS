@@ -29,4 +29,4 @@
 
 ##### Diagram
 -------
-![DM201](./img/DM201.jpg)
+![DM201](Module2/domain model/img/DM201.jpg)
