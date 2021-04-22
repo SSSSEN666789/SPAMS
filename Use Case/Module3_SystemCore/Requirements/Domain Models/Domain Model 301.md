@@ -26,7 +26,7 @@
 ## Attributes
 | Concept | Attributes | Attribute Descrption |
 | - | - | - |
-| Evaluation Request | Source Code | 테스트 대상 과제물 소스 코드 (또는 이를 가리키는 레퍼런스) |
+| Evaluation Request | Source Code | 테스트 대상 제출물 소스 코드 (또는 이를 가리키는 레퍼런스) |
 | Evaluation Request | Test Case | 테스트에 사용될 테스트케이스 (또는 이를 가리키는 레퍼런스) |
 | Test Runner | Time Limit | 테스트 실행 시간 제한 |
 | Test Runner | Space Limit | 테스트 실행 메모리 제한 |
