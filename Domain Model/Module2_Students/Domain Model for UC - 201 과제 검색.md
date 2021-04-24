@@ -29,4 +29,4 @@
 
 ##### Diagram
 -------
-![DM201](https://github.com/SSSSEN666789/SPAMS/blob/Module2_Haksaeng/Module2/domain%20model/img/DM201.jpg?raw=true)
+![DM201](./Domain%20Model/Module2_Students/img/DM201.jpg)
