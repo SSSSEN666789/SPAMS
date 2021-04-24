@@ -32,4 +32,4 @@
 
 ##### Diagram
 -------
-![DM109](img/Sub%20DM%20diagram%20for%20UC%20-%20109%20질문%20열람.jpg)
+![DM109](img/DM109.jpg)

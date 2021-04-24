@@ -30,4 +30,4 @@
 
 ##### Diagram
 -------
-![DM110](img/Sub%20DM%20diagram%20for%20UC%20-%20110%20질문%20답변.jpg)
+![DM110](img/DM110.jpg)

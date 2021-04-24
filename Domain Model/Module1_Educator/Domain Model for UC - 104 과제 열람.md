@@ -28,4 +28,4 @@
 
 ##### Diagram
 -------
-![DM104](img/Sub%20DM%20diagram%20for%20UC%20-%20104%20과제%20열람.jpg)
+![DM104](img/DM104.jpg)
