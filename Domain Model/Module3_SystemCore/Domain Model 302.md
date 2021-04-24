@@ -30,4 +30,4 @@
 
 ## Diagram
 
-![Domain Model Diagram for UC 302](Domain_Model_302_Diagram.jpg)
+![Domain Model Diagram for UC 302](img/Domain_Model_302_Diagram.jpg)
