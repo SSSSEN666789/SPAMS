@@ -27,4 +27,4 @@
 
 ##### Diagram
 -------
-![DM207](../Domain%20Model/Module2_Students/img/DM207.jpg)
+![DM207](https://github.com/SSSSEN666789/SPAMS/blob/main/Domain%20Model/Module2_Students/img/DM207.jpg)
