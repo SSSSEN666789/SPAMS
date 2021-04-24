@@ -1,4 +1,4 @@
-# Domain Model for UC - 203 과제 제출 결과 확인
+# Domain Model for UC - 203 제출물 제출 결과 확인
 
 | Responsibility Description                                   | Type | Concept Name      |
 | ------------------------------------------------------------ | ---- | ----------------- |
