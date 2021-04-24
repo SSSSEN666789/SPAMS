@@ -33,4 +33,4 @@
 
 ## Diagram
 
-![Domain Model Diagram for UC 301](Domain_Model_301_Diagram.png)
+![Domain Model Diagram for UC 301](img/Domain_Model_301_Diagram.png)
