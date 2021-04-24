@@ -5,7 +5,7 @@
 | __Related REQ__          | FR8                                                     |
 | __Initiating Actor__     | 학생                                                       |
 | __Actor's Goal__         | 교육자에게 과제를 제출하여 평가 및 피드백을 받기 위해   |
-| __Participating Actors__ | 교육자, 과제 관리자                        |
+| __Participating Actors__ | 교육자, 과제DB                        |
 | __Preconditions__        | 강의실에 등록된 학생 계정으로 로그인이 되어있어야 함. 교육자가 설정한 마감기한을 지나서는 안됨.    |
 | __Postconditions__       | 과제가 제출되고 교육자와 학생이 제출된 과제물을 확인 할 수 있음. |
 
@@ -15,8 +15,3 @@
 |      | 2. 제출 버튼을 누른다.               |
 | <-   | 3. (a) 교육자에게 제출된 과제가 전달됨. <br />(b) 과제가 제출되었다고 교육자에게 알림시스템을 통해서 알림이 감 |
 
--------
-
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>
