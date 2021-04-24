@@ -28,4 +28,4 @@
 
 ##### Diagram
 -------
-![DM105](../img/Sub%20DM%20diagram%20for%20UC%20-%20105%20제출물%20열람.jpg)
+![DM105](img/Sub%20DM%20diagram%20for%20UC%20-%20105%20제출물%20열람.jpg)

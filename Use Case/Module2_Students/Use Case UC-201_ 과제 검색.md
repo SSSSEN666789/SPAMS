@@ -15,10 +15,3 @@
 |      | 2. 과제 검색 버튼을 누른다.             |
 | <-   | 3. 학생이 검색 조건에 맞추어 해당 되는 과제들을 보여줌.  |
 
-
-
--------
-
-### Use Case 링크
-
-[UserStory](UserStory)<br/>[UC-another: another](UC-another: another)<br/>

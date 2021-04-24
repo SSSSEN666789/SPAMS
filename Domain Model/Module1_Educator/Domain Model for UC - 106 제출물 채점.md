@@ -25,4 +25,4 @@
 
 ##### Diagram
 -------
-![DM106](../img/Sub%20DM%20diagram%20for%20UC%20-%20106%20제출물%20채점.jpg)
+![DM106](img/Sub%20DM%20diagram%20for%20UC%20-%20106%20제출물%20채점.jpg)
