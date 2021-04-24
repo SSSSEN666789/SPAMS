@@ -27,4 +27,4 @@
 
 ##### Diagram
 -------
-![DM207](./Domain%20Model/Module2_Students/img/DM207.jpg)
+![DM207](../Domain%20Model/Module2_Students/img/DM207.jpg)

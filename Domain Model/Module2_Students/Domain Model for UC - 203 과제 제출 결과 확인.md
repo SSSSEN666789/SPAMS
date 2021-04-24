@@ -33,4 +33,4 @@
 
 ##### Diagram
 -------
-![DM203](./Domain%20Model/Module2_Students/img/DM203.jpg)
+![DM203](../Domain%20Model/Module2_Students/img/DM203.jpg)

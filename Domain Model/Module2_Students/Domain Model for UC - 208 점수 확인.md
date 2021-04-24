@@ -35,4 +35,4 @@
 
 ##### Diagram
 -------
-![DM208](./Domain%20Model/Module2_Students/img/DM208.jpg)
+![DM208](../Domain%20Model/Module2_Students/img/DM208.jpg)
