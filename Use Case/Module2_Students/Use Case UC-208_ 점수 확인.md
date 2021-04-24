@@ -5,7 +5,7 @@
 | __Related REQ__          | FR10                                           |
 | __Initiating Actor__     | 학생                                             |
 | __Actor's Goal__         | 교육자가 최종적으로 확정한 점수를 학생이 조회하기 위해. |
-| __Participating Actors__ | 과제DB, 교육자                    |
+| __Participating Actors__ | 제출물DB, 교육자                    |
 | __Preconditions__        | 과제가 마감되어야하고, 교육자 또는 시스템이 점수를 기입해야함.         |
 | __Postconditions__       | 교육자/시스템이 남긴 점수가 학생에게 전달됨.              |
 
