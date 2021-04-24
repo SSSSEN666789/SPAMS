@@ -35,4 +35,4 @@
 
 ##### Diagram
 -------
-![DM101](img/Sub%20DM%20diagram%20for%20UC%20-%20101%20강의실%20등록.jpg)
+![DM101](img/DM101.jpg)
