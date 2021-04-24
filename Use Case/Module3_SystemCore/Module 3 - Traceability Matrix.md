@@ -12,3 +12,5 @@
 | FR10 | 3 |   |   |
 | MAX PW || 6 | 6 |
 | TOTAL PW || 6 | 6 |
+
+![Module 3 Use Case Traceability Matrix](img/Module3_Use_Case_Traceability_Matrix.png)
