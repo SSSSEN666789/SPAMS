@@ -13,7 +13,7 @@
 ## Associations
 | Concept Pair | Association Description | Association Name |
 | - | - | - |
-| Controller <-> Evaluation Request | 주어진 과제에 대한 정보를 가져온다 | Recieve |
+| Controller <-> Evaluation Request | 주어진 과제에 대한 정보를 가져온다 | Receive |
 | Controller <-> Database Connection | 데이터베이스에 저장되어 있는 과제들의 정보를 요청한다. | Conveys Requests |
 | Controller <-> Similarity Checker | 컨트롤러가 유사도 검사를 요청한다 | Conveys Requests |
 | Similarity Checker <-> Evaluation Request | 검사에 필요한 정보를 제공한다. | Provides Data |
