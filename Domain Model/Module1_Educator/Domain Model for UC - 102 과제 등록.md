@@ -42,4 +42,4 @@
 
 ##### Diagram
 -------
-![DM102](../img/Sub%20DM%20diagram%20for%20UC%20-%20102%20과제%20등록.jpg)
+![DM102](img/Sub%20DM%20diagram%20for%20UC%20-%20102%20과제%20등록.jpg)

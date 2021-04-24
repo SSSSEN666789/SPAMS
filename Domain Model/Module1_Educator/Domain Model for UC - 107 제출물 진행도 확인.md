@@ -33,4 +33,4 @@
 
 ##### Diagram
 -------
-![DM107](../img/Sub%20DM%20diagram%20for%20UC%20-%20107%20제출물%20진행도%20확인.jpg)
+![DM107](img/Sub%20DM%20diagram%20for%20UC%20-%20107%20제출물%20진행도%20확인.jpg)

@@ -27,4 +27,4 @@
 
 ##### Diagram
 -------
-![DM108](../img/Sub%20DM%20diagram%20for%20UC%20-%20108%20제출물%20코멘트.jpg)
+![DM108](img/Sub%20DM%20diagram%20for%20UC%20-%20108%20제출물%20코멘트.jpg)
