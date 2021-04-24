@@ -4,5 +4,3 @@
 |TBI|제출된 코드들 간의 유사도를 파악하고 결과를 반환|유사도 검사(UC-2)|
 |교육자|학생이 제출한 과제를 신속하게 평가하고 피드백을 제공|UC-1, UC-2|
 |학생|자신이 제출한 과제에 대한 신속한 피드백을 제공받음|UC-1|
-
-![Module 3 Use Case Traceability Matrix](img/Module3_Use_Case_Traceability_Matrix.png)
