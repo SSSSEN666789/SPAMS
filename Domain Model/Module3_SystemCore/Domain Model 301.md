@@ -20,7 +20,7 @@
 | Evaluation Request <-> Test Runner | 실행할 테스트에 필요한 정보를 제공한다 | Provides Data |
 | Controller <-> Test Result Processor | 컨트롤러가 테스트 결과의 분석/가공을 요청한다 | Conveys Requests |
 | Test Runner <-> Test Result Processor | 실행된 테스트의 결과 정보를 제공한다 | Provides Data |
-| Test Result Processor <-> Test Report | 결과 처리자가 테스트 리포트를 생성한다 | Generates
+| Test Result Processor <-> Test Reort | 결과 처리자가 테스트 리포트를 생성한다 | Generates
 | Test Result Processor <-> Database Connection | 결과 처리자가 분석/가공된 테스트결과를 데이터베이스에 저장할 것을 요청한다 | Requests Save |
 
 ## Attributes
