@@ -2,7 +2,7 @@
 
 ### Object Sequence Diagram
 
-__최종 채택 시안__ : [Version 3](#Version 3)</br>
+__최종 채택 시안__ : [Version 3](#version-3)</br>
 
 ##### Version 1
 
