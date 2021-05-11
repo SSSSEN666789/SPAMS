@@ -2,7 +2,9 @@
 
 ### Object Sequence Diagram
 
-__Version 1__
+__최종 채택 시안__ : [Version 3](#Version 3)</br>
+
+##### Version 1
 
 ![ver1](img/OSD%20for%20UC105(ver1).png)
 
@@ -14,7 +16,7 @@ __Version 1__
 
 -------
 
-__Version 2__
+##### Version 2
 
 ![ver2](img/OSD%20for%20UC105(ver2).png)
 
@@ -28,3 +30,15 @@ Lec 11의 설계 패턴 중, Decorator 패턴의 구조를 차용함. 메소드�
 
 쿼리스트링의 구조가 바뀐다든지 하는 부분에서 유지보수가 더욱 용이해질 것으로 예상된다.
 
+-------
+
+##### Version 3
+
+![ver3](img/OSD%20for%20UC105(ver3).png)
+
+첫째로, 각 요청이 유효하지 않은 경우가 있을 수 있다고 생각했음. QueryParser가 파싱한 결과를 바탕으로 해당 쿼리가 유효한지 판단하는 ValidChecker를 추가함.
+둘째로, Version2에서는 권한 검사에 대한 부분을 QueryParser와 PageMaker가 진행했었는데, ValidChecker의 추가에 따라 해당 responsibility들은 ValidChecker에게 넘어갔음. 권한 검사 또한 쿼리 유효성 검사의 일환이기 때문에 해당 업무는 ValidChecker가 담당하는 것이 적절해 보인다.
+
+결과적으로 QueryParser는 오직 쿼리를 파싱하는 일만 할 것이고, 그 쿼리를 분석하는 일은 ValidChecker가 담당할 것이고, PageMaker는 그 결과를 바탕으로 페이지를 생성하게 되어, Version2에 비해 QueryParser와 PageMaker의 응집도가 높아졌음.
+
+'어떤 요청이 유효한 요청인가?'에 대한 정책이 바뀔 경우에 대한 유지보수성이 높아질 것으로 기대된다.
