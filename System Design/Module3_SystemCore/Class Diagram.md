@@ -1,7 +1,8 @@
 # Class Diagram for Use Case 301: 자동채점
 
 
-![System Sequence Diagram for UC 301](img/Class_Diagram_301.png)
+![Class Diagram for UC 301](img/Class_Diagram_301.png)
+
 ### Class Diagram 설명
 
 + Controller
