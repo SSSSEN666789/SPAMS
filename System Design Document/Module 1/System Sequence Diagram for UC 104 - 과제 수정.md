@@ -4,7 +4,7 @@
 
 __Version 1__
 
-![ver1](.\img\OSD for UC104(ver1).JPG)
+![ver1](https://user-images.githubusercontent.com/51692363/117980158-9f944180-b36e-11eb-85a6-ec7ccde0b854.JPG)
 
 
 
@@ -14,7 +14,7 @@ __Version 1__
 
 __Version 2__
 
-![ver2](.\img\OSD for UC104(ver2).JPG)
+![ver2](https://user-images.githubusercontent.com/51692363/117980219-b470d500-b36e-11eb-8482-27d9f048ba09.JPG)
 
 
 
@@ -26,7 +26,7 @@ __Version 2__
 
 **Version 3**
 
-![ver3](C:\Users\gu306\SSSSEN\SPAMS\System Design Document\Module 1\img\OSD for UC104(ver3).jpg)
+![ver3](https://user-images.githubusercontent.com/51692363/117980256-bfc40080-b36e-11eb-94e6-51cced9371f3.jpg)
 
 UC 104는 UC 103의 sub Use Case이기에 중복되는 부분은 생략함으로 조금 더 간단히 표기.
 
