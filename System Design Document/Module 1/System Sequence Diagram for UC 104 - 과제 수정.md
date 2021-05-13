@@ -26,7 +26,7 @@ __Version 2__
 
 **Version 3**
 
-![ver3](https://user-images.githubusercontent.com/51692363/117980256-bfc40080-b36e-11eb-94e6-51cced9371f3.jpg)
+![OSD for UC104(ver3)](https://user-images.githubusercontent.com/51692363/118135564-282de300-b43e-11eb-947a-d2986df6301d.JPG)
 
 UC 104는 UC 103의 sub Use Case이기에 중복되는 부분은 생략함으로 조금 더 간단히 표기.
 

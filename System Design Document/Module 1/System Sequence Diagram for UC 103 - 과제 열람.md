@@ -12,7 +12,7 @@ __Version 1__
 
 __Version 2__
 
-![ver2](https://user-images.githubusercontent.com/51692363/117980109-92775280-b36e-11eb-88d8-317b2aaeb216.JPG)
+![OSD for UC103(ver2)](https://user-images.githubusercontent.com/51692363/118135553-2401c580-b43e-11eb-9444-f40144541be4.JPG)
 
 
 

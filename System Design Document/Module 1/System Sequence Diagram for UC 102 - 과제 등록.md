@@ -4,7 +4,7 @@
 
 __Version 1__
 
-![ver1](https://user-images.githubusercontent.com/51692363/117978979-65767000-b36d-11eb-8cd3-3bb58c546a42.jpg)
+![ver1](https://user-images.githubusercontent.com/51692363/118122216-81414b00-b42d-11eb-8985-5425814e6bb1.jpg)
 
 
 
@@ -14,7 +14,7 @@ __Version 1__
 
 __Version 2__
 
-![ver2](https://user-images.githubusercontent.com/51692363/117979136-8fc82d80-b36d-11eb-822e-d4592819fa1c.jpg)
+![ver2](https://user-images.githubusercontent.com/51692363/118122271-94ecb180-b42d-11eb-8119-aae1d44130ce.jpg)
 
 
 
@@ -26,7 +26,9 @@ __Version 2__
 
 **Version 3**
 
-![ver3](https://user-images.githubusercontent.com/51692363/117979193-9eaee000-b36d-11eb-8ae5-c5ae115af8ac.jpg)
+![OSD for UC102(ver3)](https://user-images.githubusercontent.com/51692363/118135541-219f6b80-b43e-11eb-86b5-d152e37ab730.JPG)
+
+
 
 쿼리를 받아오고 Controller와 Pagemaker 사이에 parsing과정이 필요할 거라 판단하여 QueryParser 모듈이 파싱 작업을 실행하게 함. ValidCheck 모듈이 권한 검사와 쿼리의 결과가 유효한지 판단함.
 
