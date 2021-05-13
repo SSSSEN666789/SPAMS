@@ -2,6 +2,7 @@
 
 ## System Sequence Diagram
 ![System Sequence Diagram for UC 301](img/System_Sequence_Diagram_301.png)
+
 Module2-Initiating Actor-의 채점 요청이 들어오면 System에서 테스트를 실행하고, 제출물 DB에 결과 저장
 
 --------
@@ -10,6 +11,7 @@ Module2-Initiating Actor-의 채점 요청이 들어오면 System에서 테스�
 
 enqueue가 실행되어 code와 tc가 들어올 때 까지 dequeue요청을 반복한다.
 그 이후 runTest가 실행되어 TestRunner에서 result를 받아오고, 그 result를 바탕으로 TestResultProcessor가 report를 생성, 해당 report를 DB Connection에 저장을 요청하고, 제출물DB에 report를 저장한다.
+<br />=> Quiz의 채점이 빠졌다는 고객의 챌린지가 들어왔다는 가정 하에 Strategy 패턴을 적용하여 알고리즘 채점 언어인 파이썬과 퀴즈를 채점할 때의 경우의 수를 나누어서 작성하였다.
 
 ### V1a
 ![Object Sequence Diagram for UC 301 - Variation 1a](img/Object_Sequence_Diagram_301_V1a.png)
