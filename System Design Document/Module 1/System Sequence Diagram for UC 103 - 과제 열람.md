@@ -2,17 +2,19 @@
 
 ### Object Sequence Diagram
 
-__Version 1__
+__최종 채택 시안__ : [Version 4](#version-4)</br>
 
-![ver1](https://user-images.githubusercontent.com/51692363/117979277-b0908300-b36d-11eb-9bd3-008a57ef969f.JPG)
+##### Version 1
+
+![ver1](img/OSD%20for%20UC103(ver1).jpg)
 
 최초 기획안.  Lec 09 의 UC5의 OSD를 차용하여 작성. 직관적으로 흐름을 간단히 파악가능
 
 -------
 
-__Version 2__
+##### Version 2
 
-![OSD for UC103(ver2)](https://user-images.githubusercontent.com/51692363/118135553-2401c580-b43e-11eb-9444-f40144541be4.JPG)
+![ver2](img/OSD%20for%20UC103(ver2).jpg)
 
 
 
@@ -22,10 +24,19 @@ Query Paser와 Valid Checker 모듈을 추가하여 page를 만드는 과정을 
 
 ------
 
-__Version 3__
+##### Version 3
 
-![OSD for UC103(ver3)](https://user-images.githubusercontent.com/51692363/118248998-e35a8880-b4df-11eb-8c9a-5525d82aebb1.JPG)
+![ver3](img/OSD%20for%20UC103(ver3).jpg)
 
 OSD for UC102의 Version4와 마찬가지로 chkResult를 ValidChecker가 결과를 판단하는 버전.
 
 역시 ValidChecker가 chkResult의 결과에 따른 메시지를 pageMaker에 보내줌으로 pageMaker는 페이지를 생성하는 메소드만 가지면 됨. cohesion을 조금 더 증가.
+
+-------
+
+##### Version 4
+
+![ver4](img/OSD%20for%20UC103(ver4).png)
+
+ValidChecker가 Publisher가 되는 것이 적절하지 않다는 피드백을 수용, EventPublisher 오브젝트를 추가하여 이벤트 중개를 담당하게 함.
+

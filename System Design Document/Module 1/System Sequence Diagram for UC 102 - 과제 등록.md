@@ -2,9 +2,11 @@
 
 ### Object Sequence Diagram
 
-__Version 1__
+__최종 채택 시안__ : [Version 5](#version-5)</br>
 
-![ver1](https://user-images.githubusercontent.com/51692363/118122216-81414b00-b42d-11eb-8985-5425814e6bb1.jpg)
+##### Version 1
+
+![ver1](img/OSD%20for%20UC102(ver1).jpg)
 
 
 
@@ -12,9 +14,9 @@ __Version 1__
 
 -------
 
-__Version 2__
+##### Version 2
 
-![ver2](https://user-images.githubusercontent.com/51692363/118122271-94ecb180-b42d-11eb-8119-aae1d44130ce.jpg)
+![ver2](img/OSD%20for%20UC102(ver2).jpg)
 
 
 
@@ -24,9 +26,9 @@ __Version 2__
 
 ------
 
-**Version 3**
+##### Version 3
 
-![OSD for UC102(ver3)](https://user-images.githubusercontent.com/51692363/118135541-219f6b80-b43e-11eb-86b5-d152e37ab730.JPG)
+![ver3](img/OSD%20for%20UC102(ver3).jpg)
 
 
 
@@ -36,10 +38,18 @@ __Version 2__
 
 ------
 
-__Version 4__
+##### Version 4
 
-![OSD for UC102(ver4)](https://user-images.githubusercontent.com/51692363/118248283-194b3d00-b4df-11eb-92d7-cbba85b03ca5.JPG)
+![ver4](img/OSD%20for%20UC102(ver4).jpg)
 
 PageMaker에서 chkResult를 체크하지 않고 ValidChecker에서 체크해서 전달하는 버젼. 
 
 pageMaker에서 결과를 판단하는 것은 validChecker에서의 역할과 겹치므로 chkResult의 결과를 ValidChecker에서 확인하고 결과에 따른 메시지 전달함. 그 결과 pageMaker는 페이지 생성에 관한 메소드만 가지게 되므로 조금 더 cohesion이 높아짐. 
+
+-------
+
+##### Version 5
+
+![ver5](img/OSD%20for%20UC102(ver5).png)
+
+ValidChecker가 Publisher가 되는 것이 적절하지 않다는 피드백을 수용, EventPublisher 오브젝트를 추가하여 이벤트 중개를 담당하게 함.

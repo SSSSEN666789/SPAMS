@@ -1,0 +1,181 @@
+title Object Sequence Diagram for UC 102 과제 등록 (ver.5)
+
+actor 교육자
+participant InterfacePage
+participant Controller
+participant QueryParser
+participant ValidChecker
+participant EventPublisher
+participant PageMaker
+participant AssignmentMaker
+participant Assignment
+participant Notifier
+participant Assignment DB connection
+actor 과제DB
+actor 학생
+
+교육자->InterfacePage: Request Assignment Editor
+
+activate InterfacePage
+InterfacePage->Controller: createAssignmentEditor(query: string)
+
+activate Controller
+Controller ->QueryParser:page := createAssignmentEditor(query: string)
+
+activate QueryParser
+QueryParser->QueryParser: parsed := parseQuery(quert: string)
+activate QueryParser
+space 
+deactivate QueryParser
+QueryParser ->ValidChecker:page := createAssignmentEditor(parsed: List)
+
+activate ValidChecker
+ValidChecker->ValidChecker: chkResult := validCheck(parsed: List)
+activate ValidChecker
+space 
+deactivate ValidChecker
+ValidChecker ->EventPublisher:page := createAssignmentEditor(parsed:List, chkResult:string)
+
+activate EventPublisher
+
+alt chkResult == Authority_Violation
+
+EventPublisher ->PageMaker:event_authWarning()
+activate PageMaker
+PageMaker->PageMaker: page := authWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+
+else chkResult == Another Query Issue
+EventPublisher ->PageMaker:event_wrongRequestWarning()
+activate PageMaker
+PageMaker->PageMaker: page := wrongRequestWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+else else
+EventPublisher ->PageMaker:event_createAssignmentEditor(parsed: List)
+activate PageMaker
+PageMaker->PageMaker: page := renderAssignmentEditor()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+
+end 
+
+ValidChecker<--EventPublisher:
+deactivate EventPublisher
+QueryParser<--ValidChecker:
+deactivate ValidChecker
+Controller<--QueryParser:
+deactivate QueryParser
+InterfacePage<--Controller: <<Post Page>>
+deactivate Controller
+교육자<--InterfacePage: 과제 등록을 위한 \n편집기 표시
+deactivate InterfacePage
+
+space 
+space 
+
+교육자->InterfacePage: Request Register Assignment
+
+activate InterfacePage
+InterfacePage->Controller:createAssignmentObject(query: string)
+
+activate Controller
+Controller ->QueryParser:page := createAssignmentObject(query: string)
+
+activate QueryParser
+QueryParser->QueryParser: parsed := parseQuery(quert: string)
+activate QueryParser
+space 
+deactivate QueryParser
+QueryParser ->ValidChecker:page := createAssignmentObject(parsed: List)
+
+activate ValidChecker
+ValidChecker->ValidChecker: chkResult := validCheck(parsed: List)
+activate ValidChecker
+space 
+deactivate ValidChecker
+ValidChecker ->EventPublisher:page := createAssignmentObject(parsed:List, chkResult:string)
+
+activate EventPublisher
+
+alt chkResult == Authority_Violation
+
+EventPublisher ->PageMaker:event_authWarning()
+activate PageMaker
+PageMaker->PageMaker: page := authWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+
+else chkResult == Another Query Issue
+EventPublisher ->PageMaker:event_wrongRequestWarning()
+activate PageMaker
+PageMaker->PageMaker: page := wrongRequestWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+else else
+EventPublisher ->AssignmentMaker:k := event_createAssignmentObject(parsed: List)
+
+activate AssignmentMaker
+AssignmentMaker ->Assignment: createAssignmentObject(parsed: List)
+EventPublisher<--AssignmentMaker:
+deactivate AssignmentMaker
+
+
+
+EventPublisher->Notifier:event_AssignmentCreated(k: Assignment)
+activate Notifier
+Notifier->학생: pushAssignmentRegistered(k: Assignment)
+deactivate Notifier
+
+EventPublisher->Assignment DB connection: event_AssignmentCreated(k: Assignment)
+activate Assignment DB connection
+Assignment DB connection ->과제DB: postAssignment(k: Assignment)
+deactivate Assignment DB connection
+
+EventPublisher->PageMaker: event_AssignmentCreated(k: Assignment)
+activate PageMaker
+PageMaker->PageMaker: page := renderAssignmentContent(k: Assignment)
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+EventPublisher ->AssignmentMaker: event_AssignmentPosted(k: Assignment)
+activate AssignmentMaker
+AssignmentMaker -xAssignment: destroy(k: Assignment)
+deactivate AssignmentMaker
+
+end 
+
+ValidChecker<--EventPublisher:
+deactivate EventPublisher
+QueryParser<--ValidChecker:
+deactivate ValidChecker
+Controller<--QueryParser:
+deactivate QueryParser
+InterfacePage<--Controller: <<Post Page>>
+deactivate Controller
+교육자<--InterfacePage: 과제 등록을 위한 \n편집기 표시
+deactivate InterfacePage
