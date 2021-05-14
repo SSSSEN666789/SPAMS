@@ -2,10 +2,10 @@
 
 + [Domain Model for UC - 101 강의실 등록](Module1_Educator/Domain%20Model%20for%20UC%20-%20101%20강의실%20등록.md)
 + [Domain Model for UC - 102 과제 등록](Module1_Educator/Domain%20Model%20for%20UC%20-%20102%20과제%20등록.md)
-+ [Domain Model for UC - 103 과제 수정](Module1_Educator/Domain%20Model%20for%20UC%20-%20103%20과제%20등록.md)
-+ [Domain Model for UC - 104 과제 열람](Module1_Educator/Domain%20Model%20for%20UC%20-%20104%20과제%20열람.md)
++ [Domain Model for UC - 103 과제 열람](Module1_Educator/Domain%20Model%20for%20UC%20-%20103%20과제%20열람.md)
++ [Domain Model for UC - 104 과제 수정](Module1_Educator/Domain%20Model%20for%20UC%20-%20104%20과제%20수정.md)
 + [Domain Model for UC - 105 제출물 열람](Module1_Educator/Domain%20Model%20for%20UC%20-%20105%20제출물%20열람.md)
-+ [Domain Model for UC - 106 제출물 채점](Module1_Educator/Domain%20Model%20for%20UC%20-%20106%20제출물%20채엄.md)
++ [Domain Model for UC - 106 제출물 채점](Module1_Educator/Domain%20Model%20for%20UC%20-%20106%20제출물%20채점.md)
 + [Domain Model for UC - 107 제출물 진행도 확인](Module1_Educator/Domain%20Model%20for%20UC%20-%20107%20제출물%20진행도%20확인.md)
 + [Domain Model for UC - 108 제출물 코멘트](Module1_Educator/Domain%20Model%20for%20UC%20-%20108%20제출물%20코멘트.md)
 + [Domain Model for UC - 109 질문 열람](Module1_Educator/Domain%20Model%20for%20UC%20-%20109%20질문%20열람.md)

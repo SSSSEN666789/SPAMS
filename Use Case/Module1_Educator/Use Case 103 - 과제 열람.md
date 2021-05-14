@@ -1,10 +1,10 @@
-# Use Case UC-104: 과제 열람
+# Use Case UC-103: 과제 열람
 
-|                          | UC-104: 과제 열람 (sub-use case)                 |
+|                          | UC-103: 과제 열람 (sub-use case)                 |
 | ------------------------ | ------------------------------------------------ |
 | __Related REQ__          | FR1, FR2                                         |
-| __Initiating Actor__     | 교육자                                           |
-| __Actor's Goal__         | 교육자가 제출한 과제의 내용을 확인    |
+| __Initiating Actor__     | 학생, 교육자                                     |
+| __Actor's Goal__         | 교육자가 제출한 과제의 내용을 확인               |
 | __Participating Actors__ | 과제 DB                                          |
 | __Preconditions__        | 교육자가 과제를 등록한 적이 있어야 함.           |
 | __Postconditions__       | 교육자가 등록했던 과제의 내용을 페이지로 보여줌. |

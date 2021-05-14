@@ -1,0 +1,161 @@
+title Object Sequence Diagram for UC 104 과제 수정(ver.5)
+
+actor 교육자
+participant InterfacePage
+participant Controller
+participant QueryParser
+participant ValidChecker
+participant EventPublisher
+participant PageMaker
+participant Assignment DB Connection
+actor 과제 DB
+
+note over 교육자,과제 DB: Extends UC 103 과제 열람
+
+교육자->InterfacePage:Request Assignment Editor\nfor modifying
+
+activate InterfacePage
+InterfacePage->Controller: createAssignmentEditor(query: string)
+
+activate Controller
+Controller ->QueryParser:page := createAssignmentEditor(query: string)
+
+activate QueryParser
+QueryParser->QueryParser: parsed := parseQuery(quert: string)
+activate QueryParser
+space 
+deactivate QueryParser
+QueryParser ->ValidChecker:page := createAssignmentEditor(parsed: List)
+
+activate ValidChecker
+ValidChecker->ValidChecker: chkResult := validCheck(parsed: List)
+activate ValidChecker
+space 
+deactivate ValidChecker
+ValidChecker ->EventPublisher:page := createAssignmentEditor(parsed:List, chkResult:string)
+
+activate EventPublisher
+
+alt chkResult == Authority_Violation
+
+EventPublisher ->PageMaker:event_authWarning()
+activate PageMaker
+PageMaker->PageMaker: page := authWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+
+else chkResult == Another Query Issue
+EventPublisher ->PageMaker:event_wrongRequestWarning()
+activate PageMaker
+PageMaker->PageMaker: page := wrongRequestWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+else else
+EventPublisher ->PageMaker:event_createAssignmentEditor(parsed: List)
+activate PageMaker
+PageMaker->PageMaker: page := renderAssignmentEditor()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+
+end 
+
+ValidChecker<--EventPublisher:
+deactivate EventPublisher
+QueryParser<--ValidChecker:
+deactivate ValidChecker
+Controller<--QueryParser:
+deactivate QueryParser
+InterfacePage<--Controller: <<Post Page>>
+deactivate Controller
+교육자<--InterfacePage:과제 수정을 위한 \n편집기 표시
+deactivate InterfacePage
+
+space 
+space 
+
+교육자->InterfacePage:Request Modify Assignment
+
+activate InterfacePage
+InterfacePage->Controller:modifyAssignmentObject(query: string)
+
+activate Controller
+Controller ->QueryParser:page := modifyAssignmentObject(query: string)
+
+activate QueryParser
+QueryParser->QueryParser: parsed := parseQuery(quert: string)
+activate QueryParser
+space 
+deactivate QueryParser
+QueryParser ->ValidChecker:page := modifyAssignmentObject(parsed: List)
+
+activate ValidChecker
+ValidChecker->ValidChecker: chkResult := validCheck(parsed: List)
+activate ValidChecker
+space 
+deactivate ValidChecker
+ValidChecker ->EventPublisher:page := modifyAssignmentObject(parsed:List, chkResult:string)
+
+activate EventPublisher
+
+alt chkResult == Authority_Violation
+
+EventPublisher ->PageMaker:event_authWarning()
+activate PageMaker
+PageMaker->PageMaker: page := authWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+
+else chkResult == Another Query Issue
+EventPublisher ->PageMaker:event_wrongRequestWarning()
+activate PageMaker
+PageMaker->PageMaker: page := wrongRequestWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+else else
+
+EventPublisher ->Assignment DB Connection: k := event_modifyAssignmentObject(parsed:List)
+activate Assignment DB Connection
+Assignment DB Connection ->과제 DB: 과제 DB에서 내용 수정 후\n 수정된 과제 오브젝트 반환
+deactivate Assignment DB Connection
+
+EventPublisher ->PageMaker: event_assignmentModified(k: Assignment)
+activate PageMaker
+PageMaker->PageMaker: page := renderAssignCont(k: Assignment)
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->EventPublisher:
+deactivate PageMaker
+
+end 
+
+ValidChecker<--EventPublisher:
+deactivate EventPublisher
+QueryParser<--ValidChecker:
+deactivate ValidChecker
+Controller<--QueryParser:
+deactivate QueryParser
+InterfacePage<--Controller: <<Post Page>>
+deactivate Controller
+교육자<--InterfacePage:수정 완료된 과제를 보여줌
+deactivate InterfacePage

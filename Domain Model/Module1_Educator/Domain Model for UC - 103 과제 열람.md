@@ -1,4 +1,4 @@
-# Domain Model for UC - 104 과제 열람
+# Domain Model for UC - 103 과제 열람
 
 | Responsibility Description                          | Type | Concept Name      |
 | --------------------------------------------------- | ---- | ----------------- |
@@ -28,4 +28,4 @@
 
 ##### Diagram
 -------
-![DM104](img/DM104.jpg)
+![DM104](img/DM103.jpg)
