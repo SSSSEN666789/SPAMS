@@ -15,7 +15,7 @@ _
 
 
 ### 203 
-![classdiagram_UC203](img/img/Class%20Diagram%20203%20제출물%20결과확인.png)
+![classdiagram_UC203](img/Class%20Diagram%20203%20제출물%20결과확인.png)
 
 
 
