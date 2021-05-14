@@ -7,7 +7,7 @@
 쿼리의 전처리를 담당하는 부분에 데코레이터 패턴을 일부 적용하고, 리퀘스트에 대한 실질적인 action을 실행하는 부분에서 pub-sub 패턴을 일부 적용하였다. 즉, 두 가지 패턴이 연쇄적으로 적용되어 있는 형태이다.
 
 교육자의 모든 리퀘스트는 바운더리 오브젝트인 InterfacePage를 통해 Controller로 전달된다.
-Controller-QueryParser-ValidChecker는 InterfacePage를 통해 입력된 쿼리를 가공하고, 유효한 쿼리인지를 판단하는 ParseCheckDecorator로 정의되고 묶여있다. (단, 해당 패턴을 엄밀하게 데코레이터 패턴이라고 부를 수 있는지는 조금 혼란이 있는데, 이에 대한 서술은 [System Sequence Diagram for UC 105의 Version 2](System%20Sequence%20Diagram%20for%20UC%20105%20-%20제출물%20열람.md#version-2)에 대한 서술을 참고하기 바란다.) 
+Controller-QueryParser-ValidChecker는 InterfacePage를 통해 입력된 쿼리를 가공하고, 유효한 쿼리인지를 판단하는 ParseCheckDecorator로 정의되고 묶여있다. (단, 해당 패턴을 엄밀하게 데코레이터 패턴이라고 부를 수 있는지는 조금 혼란이 있는데, 이에 대한 서술은 [Sequence Diagram for UC 105의 Version 2](Sequence%20Diagram%20for%20UC%20105%20-%20제출물%20열람.md#version-2)에 대한 서술을 참고하기 바란다.) 
 
  그에 따른 결과로 parsing의 결과물과 유효성 검사의 결과가 생성되는데, EventManager는 리퀘스트를 바탕으로 어떤 Event가 발생되었는지를 subscriber들에게 알리고, 전처리 결과물에 대한 실제 작업이 이루어지도록 한다. Event가 발생되는 상황과 Event의 종류, 그에 따른 subscriber들의 행동은 각 System Sequence Diagram 문서들을 통해 알 수 있다.
 
@@ -32,9 +32,11 @@ __추가적인 고려사항__
 
 이렇게 각각 다루고 있는 내용에 따라 소규모 그룹화 하여 class diagram을 작성하는 것을 고려할 수 있다. 실제 구현에서 이를 적용한다면, 리퀘스트와 event를 기준으로 서버를 분할하여 병목현상을 완화시킬 수도 있을 것이다.
 
+
+
 ##### 초안 
 
-초안에서는 UC별로 Class Diagram들이 하나 씩 나왔는데, 다 만들어놓고 보니 공통적인 부분이 많아지게(재사용성이 좋아지게) 설계를 해서 어느정도 합쳐도 될 것 같다.
+__논의 내용__:  초안에서는 UC별로 Class Diagram들이 하나 씩 나왔는데, 다 만들어놓고 보니 공통적인 부분이 많아지게(재사용성이 좋아지게) 설계를 해서 어느정도 합쳐도 될 것 같다.
 105는 제출물에 관한 내용이니까 냅두고, 102~104는 과제에 대한 내용이니까 합쳐도 될 것 같음.
 
 -------
