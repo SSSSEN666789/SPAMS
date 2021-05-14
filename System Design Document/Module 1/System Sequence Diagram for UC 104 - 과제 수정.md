@@ -33,3 +33,13 @@ UC 104는 UC 103의 sub Use Case이기에 중복되는 부분은 생략함으로
 수정할 과제의 ID는 이미 쿼리에 포함되어 있으므로 새롭게 객체를 생성하여 추가함과 동시에 기존에 있는 것을 파기하는 것보다 REST API와 같은 API에서는 PUT으로 수정이 가능하다.
 
 그러므로 과제 수정자 모듈이 수정할 내용으로 해당 과제 ID에 put을 요청하여 과제를 수정함으로 과제 오브젝트를 새로 생성하지 않아도 되어 자원 측면에서 좀 더 효율적. 
+
+------
+
+__Version 4__
+
+![OSD for UC104(ver4)](https://user-images.githubusercontent.com/51692363/118249401-5c59e000-b4e0-11eb-88dc-f74707146361.JPG)
+
+OSD for UC102의 Version4와 마찬가지로 chkResult를 ValidChecker가 결과를 판단하는 버전.
+
+역시 ValidChecker가 chkResult의 결과에 따른 메시지를 pageMaker에 보내줌으로 pageMaker는 페이지를 생성하는 메소드만 가지면 됨. cohesion을 조금 더 증가.

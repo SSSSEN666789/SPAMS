@@ -19,3 +19,13 @@ __Version 2__
 과제 목록과 선택한 과제의 정보를 불러오는 get이 중복되어 각자 구분할 수 있는 메소드로 변경.
 
 Query Paser와 Valid Checker 모듈을 추가하여 page를 만드는 과정을 더욱 상세히 묘사. 또한 유효하지 않은 접근에 대해 처리하는 방법 추가.
+
+------
+
+__Version 3__
+
+![OSD for UC103(ver3)](https://user-images.githubusercontent.com/51692363/118248998-e35a8880-b4df-11eb-8c9a-5525d82aebb1.JPG)
+
+OSD for UC102의 Version4와 마찬가지로 chkResult를 ValidChecker가 결과를 판단하는 버전.
+
+역시 ValidChecker가 chkResult의 결과에 따른 메시지를 pageMaker에 보내줌으로 pageMaker는 페이지를 생성하는 메소드만 가지면 됨. cohesion을 조금 더 증가.
