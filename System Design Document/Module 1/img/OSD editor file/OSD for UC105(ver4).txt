@@ -1,0 +1,72 @@
+title Object Sequence Diagram for UC 105 제출물 열람(ver.4)
+
+actor 교육자
+participant InterfacePage
+participant Controller
+participant QueryParser
+participant ValidChecker
+participant PageMaker
+participant Submissions DB Connection
+actor 제출물 DB
+
+교육자->InterfacePage: 제출물 목록 요청
+
+activate InterfacePage
+InterfacePage->Controller: createSubList(query: string)
+
+activate Controller
+Controller ->QueryParser: page := createSubList(query: string)
+
+activate QueryParser
+QueryParser->QueryParser: parsed := parseQuery(quert: string)
+activate QueryParser
+space 
+deactivate QueryParser
+QueryParser ->ValidChecker: page := createSubList(parsed: List)
+
+activate ValidChecker
+ValidChecker->ValidChecker: chkResult := validCheck(parsed: List)
+activate ValidChecker
+space 
+deactivate ValidChecker
+
+
+alt chkResult == Authority_Violation
+
+ValidChecker ->PageMaker: authWarning()
+activate PageMaker
+PageMaker->PageMaker: page := authWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->ValidChecker:
+deactivate PageMaker
+
+
+else chkResult == Another Query Issue
+ValidChecker ->PageMaker: wrongRequestWarning()
+activate PageMaker
+PageMaker->PageMaker: page := wrongRequestWarning()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->ValidChecker:
+deactivate PageMaker
+
+else else
+ValidChecker ->PageMaker: createSubList(parsed: List)
+activate PageMaker
+PageMaker ->Submissions DB Connection: submissionList := retrieveList(assignID: string)
+
+activate Submissions DB Connection
+Submissions DB Connection ->제출물 DB:
+제출물 DB -->Submissions DB Connection: assignID에 해당하는 제출물 DB로부터\n전체 제출물 목록 조회 및 반환\n
+Submissions DB Connection-->PageMaker:
+deactivate Submissions DB Connection
+PageMaker->PageMaker: page := renderSubList()
+activate PageMaker
+space 
+deactivate PageMaker
+PageMaker-->ValidChecker:
+
+end
