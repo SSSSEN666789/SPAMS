@@ -69,6 +69,31 @@
 
 -------
 
+### System Design Documents
+
+##### Sequence Diagrams
+
++ __Module 1__
+  + [Sequence Diagram for UC 102 - 과제 등록](System%20Design%20Document/Module1_Educator/Sequence%20Diagram%20for%20UC%20102%20-%20과제%20등록.md)
+  + [Sequence Diagram for UC 103 - 과제 열람](System%20Design%20Document/Module1_Educator/Sequence%20Diagram%20for%20UC%20103%20-%20과제%20열람.md)
+  + [Sequence Diagram for UC 104 - 과제 수정](System%20Design%20Document/Module1_Educator/Sequence%20Diagram%20for%20UC%20104%20-%20과제%20수정.md)
+  + [Sequence Diagram for UC 105 - 제출물 열람](System%20Design%20Document/Module1_Educator/Sequence%20Diagram%20for%20UC%20105%20-%20제출물%20열람.md)
++ __Module 2__
+  + [Sequence Diagram for UC 202 & 204 (combined)](System%20Design%20Document/Module2_Students/Sequence%20Diagram%20for%20Use%20Case%20202%20%26%20204(combined).md)
+  + [Sequence Diagram for UC 202 - 제출물 제출](System%20Design%20Document/Module2_Students/Sequence%20Diagram%20for%20Use%20Case%20202_%20제출물%20제출.md)
+  + [Sequence Diagram for UC 203 - 제출물 결과확인](System%20Design%20Document/Module2_Students/Sequence%20Diagram%20for%20Use%20Case%20203_%20제출물%20결과확인.md)
+  + [Sequence Diagram for UC 204 - 제출물 재제출](System%20Design%20Document/Module2_Students/Sequence%20Diagram%20for%20Use%20Case%20204_%20제출물%20재제출.md)
++ __Module 3__
+  + [Sequence Diagram for UC 301 - 자동채점](System%20Design%20Document/Module3_SystemCore/Sequence%20Diagram%20for%20UC%20301%20-%20자동채점.md)
+
+##### Class Diagrams
+
++ [Module 1 Class Diagrams](System%20Design%20Document/Module1_Educator/Class%20Diagrams.md)
++ [Module 2 Class Diagrams](System%20Design%20Document/Module2_Students/Class%20Diagrams.md)
++ [Module 3 Class Diagrams](SSystem%20Design%20Document/Module3_SystemCore/Class%20Diagram.md)
+
+-------
+
 ##### [회의록](./회의록)
 
 + [20210324](./회의록/팀%20SSSSEN%20회의%20-%2020210324.md)
@@ -83,4 +108,12 @@
 + [20210422](./회의록/팀%20SSSSEN%20회의%20-%2020210422.md)
 + [20210424](./회의록/팀%20SSSSEN%20회의%20-%2020210424.md)
 + [20210426](./회의록/팀%20SSSSEN%20회의%20-%2020210426.md)
++ [20210503](./회의록/팀%20SSSSEN%20회의%20-%2020210503.md)
++ [20210505](./회의록/팀%20SSSSEN%20회의%20-%2020210505.md)
+
++ [20210510](./회의록/팀%20SSSSEN%20회의%20-%2020210510.md)
+
++ [20210512](./회의록/팀%20SSSSEN%20회의%20-%2020210512.md)
+
++ [20210514](./회의록/팀%20SSSSEN%20회의%20-%2020210514.md)
 
