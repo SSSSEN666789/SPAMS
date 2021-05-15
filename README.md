@@ -89,8 +89,8 @@
 ##### Class Diagrams
 
 + [Module 1 Class Diagrams](System%20Design%20Document/Module1_Educator/Class%20Diagrams.md)
-+ [Module 2 Class Diagrams](System%20Design%20Document/Module2_Students/Class%20Diagrams.md)
-+ [Module 3 Class Diagrams](SSystem%20Design%20Document/Module3_SystemCore/Class%20Diagram.md)
++ [Module 2 Class Diagrams](System%20Design%20Document/Module2_Students/Class%20Diagram%20for%20Module%202.md)
++ [Module 3 Class Diagrams](System%20Design%20Document/Module3_SystemCore/Class%20Diagram.md)
 
 -------
 
