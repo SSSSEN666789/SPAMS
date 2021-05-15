@@ -6,7 +6,7 @@ __최종 채택 시안__ : [Version 5](#version-5)</br>
 
 ##### Version 1
 
-![ver1](img/OSD%20for%20UC104(ver1).jpg)
+![ver1](img/OSD%20for%20UC104(ver1).JPG)
 
 
 
@@ -16,7 +16,7 @@ __최종 채택 시안__ : [Version 5](#version-5)</br>
 
 ##### Version 2
 
-![ver2](img/OSD%20for%20UC104(ver2).jpg)
+![ver2](img/OSD%20for%20UC104(ver2).JPG)
 
 
 
@@ -40,7 +40,7 @@ UC 104는 UC 103의 sub Use Case이기에 중복되는 부분은 생략함으로
 
 ##### Version 4
 
-![OSD for UC104(ver4)](img/OSD%20for%20UC104(ver4).jpg)
+![OSD for UC104(ver4)](img/OSD%20for%20UC104(ver4).JPG)
 
 OSD for UC102의 Version4와 마찬가지로 chkResult를 ValidChecker가 결과를 판단하는 버전.
 

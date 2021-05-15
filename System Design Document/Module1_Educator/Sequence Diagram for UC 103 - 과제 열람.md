@@ -26,7 +26,7 @@ Query Paser와 Valid Checker 모듈을 추가하여 page를 만드는 과정을 
 
 ##### Version 3
 
-![ver3](img/OSD%20for%20UC103(ver3).jpg)
+![ver3](img/OSD%20for%20UC103(ver3).JPG)
 
 OSD for UC102의 Version4와 마찬가지로 chkResult를 ValidChecker가 결과를 판단하는 버전.
 

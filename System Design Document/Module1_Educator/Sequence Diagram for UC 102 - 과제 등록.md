@@ -40,7 +40,7 @@ __최종 채택 시안__ : [Version 5](#version-5)</br>
 
 ##### Version 4
 
-![ver4](img/OSD%20for%20UC102(ver4).jpg)
+![ver4](img/OSD%20for%20UC102(ver4).JPG)
 
 PageMaker에서 chkResult를 체크하지 않고 ValidChecker에서 체크해서 전달하는 버젼. 
 
