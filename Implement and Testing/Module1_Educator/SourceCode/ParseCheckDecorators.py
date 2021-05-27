@@ -1,0 +1,216 @@
+''' ParseCheckDecorators.py
+
+ParseCheckDecorator_Interface.py의 인터페이스를 바탕으로 실체화된 데코레이터들.
+
+class 이름(ParseCheckDecoratorMeta):
+    ### 이름 전용 메소드
+    전용 메소드
+    ### 이름 데코레이터 메소드
+    데코레이터 메소드
+
+위의 형식으로 작성됨
+
+목록:
+Controller
+QueryParser
+ValidChecker
+
+'''
+from ParseCheckDecorator_Interface import ParseCheckDecoratorMeta
+
+###############################################################
+class Controller(ParseCheckDecoratorMeta):
+
+    ### Controller 데코레이터 메소드
+
+    def createAssignmentEditor(self, param):
+        return self.next.createAssignmentEditor(param)
+
+    def createAssignmentList(self, param):
+        return self.next.createAssignmentEditor(param)
+
+    def createAssignmentCont(self, param):
+        return self.next.createAssignmentEditor(param)
+
+    def createAssignmentObject(self, param):
+        return self.next.createAssignmentEditor(param)
+
+    def modifyAssignmentObject(self, param):
+        return self.next.createAssignmentEditor(param)
+
+    def createSubList(self, param):
+        return self.next.createAssignmentEditor(param)
+
+    def createSubCont(self, param):
+        return self.next.createAssignmentEditor(param)
+
+###############################################################
+class QueryParser(ParseCheckDecoratorMeta):
+
+    ### QueryParser 전용 메소드
+
+    def parseRequest(request:str):
+        query = request.split("?")[1]
+        body = query.split('&')
+        content = {}
+        for i in range(len(body)): 
+            temp = body[i].split('=')
+            content[temp[0]] = temp[1]
+        return content
+
+    ### QueryParser 데코레이터 메소드
+
+    def createAssignmentEditor(self, param):
+        param = self.parseRequest(param)
+        return self.next.createAssignmentEditor(param)
+
+    def createAssignmentList(self, param):
+        param = self.parseRequest(param)
+        return self.next.createAssignmentEditor(param)
+
+    def createAssignmentCont(self, param):
+        param = self.parseRequest(param)
+        return self.next.createAssignmentEditor(param)
+
+    def createAssignmentObject(self, param):
+        param = self.parseRequest(param)
+        return self.next.createAssignmentEditor(param)
+
+    def modifyAssignmentObject(self, param):
+        param = self.parseRequest(param)
+        return self.next.createAssignmentEditor(param)
+
+    def createSubList(self, param):
+        param = self.parseRequest(param)
+        return self.next.createAssignmentEditor(param)
+
+    def createSubCont(self, param):
+        param = self.parseRequest(param)
+        return self.next.createAssignmentEditor(param)
+
+###############################################################
+class ValidChecker(ParseCheckDecoratorMeta):
+
+    ### ValidChecker 전용 메소드
+
+    def validCheck(parsed: dict, order: str):
+
+        ## 공통 검사 항목 ##
+
+        if 'auth' not in parsed: return 'body: auth is not exist.'
+        if 'class' not in parsed: return 'body: class is not exist.'
+        #if 강의실 DB에 입력한 강의실ID에 해당하는 강의실이 없는 경우: return 'Cannot find 입력ID in Class DB'
+
+
+        ## 메소드 별 검사 항목 ##
+
+        ## Request Assignment Editor
+        if order == 'createAssignmentEditor':
+
+            if parsed['auth'] != 'educator': return 'auth violation'
+            
+        ## Request Assignment List
+        elif order == 'createAssignmentList':
+
+            if parsed['auth'] != 'educator': return 'auth violation'
+                       
+        ## Request Assignment Content
+        elif order == 'createAssignmentCont':
+
+            if not(parsed['auth'] == 'educator' or parsed['auth'] == 'student'): return 'auth violation'
+
+            if 'assignment' not in parsed: return 'body: assignment is not exist.'
+            #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
+             
+        ## Request Register Assignment & Request Modify Assignment
+        elif (order == 'createAssignmentObject') or (order == 'modifyAssignmentObject'): 
+
+            if parsed['auth'] != 'educator': return 'auth violation'
+
+            if 'title' not in parsed: return 'body: title is not exist.'
+            if 'cont' not in parsed: return 'body: cont is not exist.'
+            if 'deadline' not in parsed: return 'body: deadline is not exist.'
+            if 'score' not in parsed: return 'body: score is not exist.'
+            if 'file' not in parsed: return 'body: file is not exist.'
+            if 'flag' not in parsed: return 'body: flag is not exist.'
+            if 'params' not in parsed: return 'body: params is not exist.'
+
+            if order == 'modifyAssignmentObject':
+                if 'assignment' not in parsed: return 'body: assignment is not exist'
+                #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
+
+            deadline = parsed['deadline'].split('-')
+            d_res = 4
+            if len(deadline) == 3: d_res -= 1
+            if len(deadline[0]) == 4: d_res -= 1
+            if len(deadline[1]) == 2: d_res -= 1
+            if len(deadline[2]) == 2: d_res -= 1
+            if d_res > 0: return 'Wrong format -> body: deadline'
+            #if deadline을 과거로 잡으려고 할 때: return 'Wrong date -> body: deadline=' + parsed['deadline']
+
+            if str(parsed['flag']) == '0':
+                if parsed['params'] != False: return 'Normal assignment cannot have body: params'
+
+            elif str(parsed['flag']) == '1':
+                if 'code' not in parsed: return 'body: code is not exist.'
+                if 'openbound' not in parsed: return 'body: openbound is not exist.'
+
+            elif str(parsed['flag']) == '2':
+                if 'quiz' not in parsed: return 'body: quiz is not exist.'
+                if 'openanswer' not in parsed: return 'body: quiz is not exist'
+
+            else: return 'Wrong value -> body: flag=' + parsed['flag']          
+
+        ## Request Submission List
+        elif order == 'createSubList':
+
+            if parsed['auth'] != 'educator': return 'auth violation'
+
+            if 'assignment' not in parsed: return 'body: assignment is not exist.'
+            #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
+
+            
+        ## Request Submission Content
+        elif order == 'createSubCont':
+
+            if parsed['auth'] != 'educator': return 'auth violation'
+
+            if 'assignment' not in parsed: return 'body: assignment is not exist.'
+            if 'submission' not in parsed: return 'body: submission is not exist.'
+            #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
+            #if 제출물 DB에 입력한 제출물ID에 해당하는 제출물이 없는 경우: return 'Cannot find 입력ID in Submission DB'
+
+        else: return 'Wrong method'
+
+        return 'accepted'
+
+    ### ValidChecker 데코레이터 메소드
+
+    def createAssignmentEditor(self, param):
+        validChkResult = self.validCheck(param, 'createAssignmentEditor')
+        if validChkResult == 'accepted': return self.next.event_createAssignmentEditor(param)
+        else                           : return self.next.event_wrongRequestWarning(validChkResult)                     
+
+    def createAssignmentList(self, param):
+        param = self.validCheck(param, 'createAssignmentList')
+        return self.next.createAssignmentEditor(param)
+
+    def createAssignmentCont(self, param):
+        param = self.validCheck(param, 'createAssignmentCont')
+        return self.next.createAssignmentEditor(param)
+
+    def createAssignmentObject(self, param):
+        param = self.validCheck(param, 'createAssignmentObject')
+        return self.next.createAssignmentEditor(param)
+
+    def modifyAssignmentObject(self, param):
+        param = self.validCheck(param, 'modifyAssignmentObject')
+        return self.next.createAssignmentEditor(param)
+
+    def createSubList(self, param):
+        param = self.validCheck(param, 'createSubList')
+        return self.next.createAssignmentEditor(param)
+
+    def createSubCont(self, param):
+        param = self.validCheck(param, 'createSubCont')
+        return self.next.createAssignmentEditor(param)
