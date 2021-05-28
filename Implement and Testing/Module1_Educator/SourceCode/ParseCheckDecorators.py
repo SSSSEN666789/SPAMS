@@ -31,15 +31,20 @@ class QueryParser(ParseCheckDecoratorMeta):
 
     ### QueryParser 전용 메소드
 
-    def parseRequest(query:str):
-        temp = query.split("?")
-        request = temp[0]
-        body = temp[1].split('&')
-        content = {}
-        for i in range(len(body)): 
-            temp = body[i].split('=')
-            content[temp[0]] = temp[1]
-        return (request, content)
+    def parseRequest(self, query:str):
+        try:
+            temp = query.split("?")
+            request = temp[0]
+            body = temp[1]
+            if '&' in body: body = body.split('&')
+            else:           body = [body]
+            content = {}
+            for i in range(len(body)): 
+                temp = body[i].split('=')
+                content[temp[0]] = temp[1]
+            return (request, content)
+        except:
+            return ('query format error', content)
 
     ### QueryParser 데코레이터 메소드
 
@@ -52,31 +57,36 @@ class ValidChecker(ParseCheckDecoratorMeta):
 
     ### ValidChecker 전용 메소드
 
-    def validCheck(param):
+    def validCheck(self, param):
 
         request = param[0]
         parsed = param[1]
 
-        ## 공통 검사 항목 ##
+        ## 공통 검사항목 ##
 
+        if request == 'query format error': return 'query format error'
         if 'auth' not in parsed: return 'body: auth is not exist.'
         if 'class' not in parsed: return 'body: class is not exist.'
         #if 강의실 DB에 입력한 강의실ID에 해당하는 강의실이 없는 경우: return 'Cannot find 입력ID in Class DB'
-
-
+        
         ## 메소드 별 검사 항목 ##
 
-        ## Request Assignment Editor
-        if request == 'AssignmentEditor':
-
+        ## AssignmentEditorNew
+        if request == 'AssignmentEditorNew':
             if parsed['auth'] != 'educator': return 'auth violation'
+
+        ## AssignmentEditorModify
+        elif request == 'AssignmentEditorModify':
+            if parsed['auth'] != 'educator': return 'auth violation'
+            if 'assignment' not in parsed: return 'body: assignment is not exist.'
+            #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
             
-        ## Request Assignment List
+        ## AssignmentList
         elif request == 'AssignmentList':
 
             if parsed['auth'] != 'educator': return 'auth violation'
                        
-        ## Request Assignment Content
+        ## AssignmentContent
         elif request == 'AssignmentContent':
 
             if not(parsed['auth'] == 'educator' or parsed['auth'] == 'student'): return 'auth violation'
@@ -84,7 +94,7 @@ class ValidChecker(ParseCheckDecoratorMeta):
             if 'assignment' not in parsed: return 'body: assignment is not exist.'
             #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
              
-        ## Request Register Assignment & Request Modify Assignment
+        ## RegisterAssignment & ModifyAssignment
         elif (request == 'RegisterAssignment') or (request == 'ModifyAssignment'): 
 
             if parsed['auth'] != 'educator': return 'auth violation'
@@ -113,7 +123,7 @@ class ValidChecker(ParseCheckDecoratorMeta):
 
             ## flag chk
             if str(parsed['flag']) == '0':
-                if parsed['params'] != False: return 'Normal assignment cannot have body: params'
+                if parsed['params'] != 'False': return 'Normal assignment cannot have body: params'
 
             elif str(parsed['flag']) == '1':
                 if 'code' not in parsed: return 'body: code is not exist.'
@@ -125,7 +135,7 @@ class ValidChecker(ParseCheckDecoratorMeta):
 
             else: return 'Wrong value -> body: flag=' + parsed['flag']          
 
-        ## Request Submission List
+        ## SubmissionList
         elif request == 'SubmissionList':
 
             if parsed['auth'] != 'educator': return 'auth violation'
@@ -134,7 +144,7 @@ class ValidChecker(ParseCheckDecoratorMeta):
             #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
 
             
-        ## Request Submission Content
+        ## SubmissionContent
         elif request == 'SubmissionContent':
 
             if parsed['auth'] != 'educator': return 'auth violation'

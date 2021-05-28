@@ -1,5 +1,4 @@
 from abc import *
-from typing_extensions import ParamSpecKwargs
 
 class ParseCheckDecoratorMeta(metaclass=ABCMeta):
     
