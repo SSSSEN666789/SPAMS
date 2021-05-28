@@ -23,46 +23,43 @@ Class diagram에서 어떤게 어떤 이벤트 구독하고 있는지 써둘걸.
 event_createAssignmentEditor는 파라미터별로 안나눠도 될듯. 어차피 다 param으로 퉁쳤음.
 pagemaker는 좀 특별히 처리해야할듯. 그냥 subs로 퉁쳐버리면 안됨. pageMaker의 결과를 받아와야함.
 
+데코레이터들한테 이벤트 별로 메소드 따로 줄 필요 없을 것 같다. 그냥 쿼리에 요청사항 포함돼있으면 되는거 아니야?
+메소드 이름은 createPage로 퉁치자. InterfacePage라는 바운더리가 Controller에게 Page 만들어 달라고 요청하는거니까.
+
+-> 여기에 맞춰서 Class Diagram만 좀 수정하자.
 
 
-쿼리스트링: 주소?파라미터1=값&파라미터2=값& ~~~ &파라미터n=값
-주소에 ?가 들어면 안됨.
+
+쿼리스트링: 요청사항?파라미터1=값&파라미터2=값& ~~~ &파라미터n=값
+요청사항에?가 들어면 안됨.
 ? 이후에 파라미터=값 혹은 바디 별 구분을 위한 & 외에는 =와 &이 들어가면 안됨.
 바디의 순서는 바뀌어도 상관 없음.
 
 __Request Assignment Editor:__
-
-대응 메소드: createAssignmentEditor
 
 필요 바디
 auth: 요청자 권한. 사실 리퀘스트의 헤더에 들어가는게 맞는데, 테스팅을 위해서 일단은 바디에 속해있는 것으로 간주하고 구현
 class: 과제를 작성 혹은 수정할 강의실 id
 assignment: 수정할 과제의 id. 새로운 과제 작성일 경우엔 없어도 되고, 기존 과제 수정일 경우 있어야함.
 
-예시: ?auth=educator&class=10
+예시: AssignmentEditor?auth=educator&class=10
 
 __Request Assignment List:__
-
-대응 메소드: createAssignmentList
 
 필요 바디
 auth: 요청자 권한
 class: 과제목록을 열람할 강의실 id
-예시: ?auth=educator&class=10
+예시: AssignmentList?auth=educator&class=10
 
 __Request Assignment Content:__
-
-대응 메소드: createAssignmentCont
 
 필요 바디
 auth: 요청자 권한
 class: 과제내용을 열람할 강의실 id
 assignment: 요청 과제 id
-예시: ?auth=student&class=10&assignment=1
+예시: AssignmentContent?auth=student&class=10&assignment=1
 
 __Request Register Assignment:__
-
-대응 메소드: createAssignmentObject
 
 필요 바디
 
@@ -86,13 +83,13 @@ quiz: 퀴즈 전용 파라미터. 퀴즈 내용과 정답을 담고 있는 파�
 openanswer: 퀴즈 전용 파라미터. 정답 공개 여부를 True, False로 작성.
 
 예시-일반 과제: 
-?auth=educator&class=10&title=일반과제제목&cont=일반과제내용&deadline=2021-05-28&score=10.0&file=filepath&flag=0&params=False
+RegisterAssignment?auth=educator&class=10&title=일반과제제목&cont=일반과제내용&deadline=2021-05-28&score=10.0&file=filepath&flag=0&params=False
 
 예시-알고리즘 과제: 
-?auth=educator&class=10&title=알고리즘과제제목&cont=알고리즘과제내용&deadline=2021-05-28&score=10.0&file=False&flag=1&params=True&code=codepath&openbound=False
+RegisterAssignment?auth=educator&class=10&title=알고리즘과제제목&cont=알고리즘과제내용&deadline=2021-05-28&score=10.0&file=False&flag=1&params=True&code=codepath&openbound=False
 
 예시-퀴즈:
-?auth=educator&class=10&title=퀴즈제목&cont=퀴즈내용&deadline=2021-05-28&score=10.0&file=False&flag=2&params=True&quiz=quizpath&openanswer=True
+RegisterAssignment?auth=educator&class=10&title=퀴즈제목&cont=퀴즈내용&deadline=2021-05-28&score=10.0&file=False&flag=2&params=True&quiz=quizpath&openanswer=True
 
 __Request Modify Assignment:__
 
@@ -104,7 +101,7 @@ Request Register Assignment와 동일하나,
 assignment: 수정할 과제의 id 
 
 예시-일반 과제: 
-?auth=educator&class=10&assignment=1&title=일반과제수정제목&cont=일반과제수정내용&deadline=2021-05-30&score=30.0&file=filepath&flag=0&params=False
+ModifyAssignment?auth=educator&class=10&assignment=1&title=일반과제수정제목&cont=일반과제수정내용&deadline=2021-05-30&score=30.0&file=filepath&flag=0&params=False
 
 __Request Submission List:__
 
@@ -114,7 +111,7 @@ __Request Submission List:__
 auth: 요청자 권한
 class: 제출물 목록을 불러올 강의실 id
 assignment: 제출물 목록을 불러울 과제 id
-예시: ?auth=educator&class=10&assignment=1
+예시: SubmissionList?auth=educator&class=10&assignment=1
 
 __Request Submission Content:__
 
@@ -125,7 +122,7 @@ auth: 요청자 권한
 class: 제출물 내용을 불러올 강의실 id
 assignment: 제출물 내용을 불러울 과제 id
 submission: 제출물 id
-예시: ?auth=educator&class=10&assignment=1&submission=27
+예시: SubmissionContent?auth=educator&class=10&assignment=1&submission=27
 
 
 

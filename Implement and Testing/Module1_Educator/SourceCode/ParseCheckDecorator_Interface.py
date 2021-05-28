@@ -13,30 +13,5 @@ class ParseCheckDecoratorMeta(metaclass=ABCMeta):
         return res
 
     @abstractmethod
-    def createAssignmentEditor(self, param):
+    def createPage(self, param):
         pass
-
-    @abstractmethod
-    def createAssignmentList(self, param):
-        pass
-
-    @abstractmethod
-    def createAssignmentCont(self, param):
-        pass
-
-    @abstractclassmethod
-    def createAssignmentObject(self, param):
-        pass
-
-    @abstractclassmethod
-    def modifyAssignmentObject(self, param):
-        pass
-
-    @abstractclassmethod
-    def createSubList(self, param):
-        pass
-
-    @abstractclassmethod
-    def createSubCont(self, param):
-        pass
-

@@ -1,0 +1,3 @@
+class AssignmentsDBConnection:
+    
+    pass

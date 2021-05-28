@@ -23,77 +23,39 @@ class Controller(ParseCheckDecoratorMeta):
 
     ### Controller 데코레이터 메소드
 
-    def createAssignmentEditor(self, param):
-        return self.next.createAssignmentEditor(param)
-
-    def createAssignmentList(self, param):
-        return self.next.createAssignmentEditor(param)
-
-    def createAssignmentCont(self, param):
-        return self.next.createAssignmentEditor(param)
-
-    def createAssignmentObject(self, param):
-        return self.next.createAssignmentEditor(param)
-
-    def modifyAssignmentObject(self, param):
-        return self.next.createAssignmentEditor(param)
-
-    def createSubList(self, param):
-        return self.next.createAssignmentEditor(param)
-
-    def createSubCont(self, param):
-        return self.next.createAssignmentEditor(param)
+    def createPage(self, param):
+        return self.next.createPage(param)
 
 ###############################################################
 class QueryParser(ParseCheckDecoratorMeta):
 
     ### QueryParser 전용 메소드
 
-    def parseRequest(request:str):
-        query = request.split("?")[1]
-        body = query.split('&')
+    def parseRequest(query:str):
+        temp = query.split("?")
+        request = temp[0]
+        body = temp[1].split('&')
         content = {}
         for i in range(len(body)): 
             temp = body[i].split('=')
             content[temp[0]] = temp[1]
-        return content
+        return (request, content)
 
     ### QueryParser 데코레이터 메소드
 
-    def createAssignmentEditor(self, param):
+    def createPage(self, param):
         param = self.parseRequest(param)
-        return self.next.createAssignmentEditor(param)
-
-    def createAssignmentList(self, param):
-        param = self.parseRequest(param)
-        return self.next.createAssignmentEditor(param)
-
-    def createAssignmentCont(self, param):
-        param = self.parseRequest(param)
-        return self.next.createAssignmentEditor(param)
-
-    def createAssignmentObject(self, param):
-        param = self.parseRequest(param)
-        return self.next.createAssignmentEditor(param)
-
-    def modifyAssignmentObject(self, param):
-        param = self.parseRequest(param)
-        return self.next.createAssignmentEditor(param)
-
-    def createSubList(self, param):
-        param = self.parseRequest(param)
-        return self.next.createAssignmentEditor(param)
-
-    def createSubCont(self, param):
-        param = self.parseRequest(param)
-        return self.next.createAssignmentEditor(param)
+        return self.next.createPage(param)
 
 ###############################################################
 class ValidChecker(ParseCheckDecoratorMeta):
 
     ### ValidChecker 전용 메소드
 
-    def validCheck(parsed: dict, order: str):
+    def validCheck(param):
+
+        request = param[0]
+        parsed = param[1]
 
         ## 공통 검사 항목 ##
 
@@ -105,17 +67,17 @@ class ValidChecker(ParseCheckDecoratorMeta):
         ## 메소드 별 검사 항목 ##
 
         ## Request Assignment Editor
-        if order == 'createAssignmentEditor':
+        if request == 'AssignmentEditor':
 
             if parsed['auth'] != 'educator': return 'auth violation'
             
         ## Request Assignment List
-        elif order == 'createAssignmentList':
+        elif request == 'AssignmentList':
 
             if parsed['auth'] != 'educator': return 'auth violation'
                        
         ## Request Assignment Content
-        elif order == 'createAssignmentCont':
+        elif request == 'AssignmentContent':
 
             if not(parsed['auth'] == 'educator' or parsed['auth'] == 'student'): return 'auth violation'
 
@@ -123,7 +85,7 @@ class ValidChecker(ParseCheckDecoratorMeta):
             #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
              
         ## Request Register Assignment & Request Modify Assignment
-        elif (order == 'createAssignmentObject') or (order == 'modifyAssignmentObject'): 
+        elif (request == 'RegisterAssignment') or (request == 'ModifyAssignment'): 
 
             if parsed['auth'] != 'educator': return 'auth violation'
 
@@ -135,10 +97,11 @@ class ValidChecker(ParseCheckDecoratorMeta):
             if 'flag' not in parsed: return 'body: flag is not exist.'
             if 'params' not in parsed: return 'body: params is not exist.'
 
-            if order == 'modifyAssignmentObject':
+            if request == 'ModifyAssignment':
                 if 'assignment' not in parsed: return 'body: assignment is not exist'
                 #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
 
+            ## deadline chk
             deadline = parsed['deadline'].split('-')
             d_res = 4
             if len(deadline) == 3: d_res -= 1
@@ -148,6 +111,7 @@ class ValidChecker(ParseCheckDecoratorMeta):
             if d_res > 0: return 'Wrong format -> body: deadline'
             #if deadline을 과거로 잡으려고 할 때: return 'Wrong date -> body: deadline=' + parsed['deadline']
 
+            ## flag chk
             if str(parsed['flag']) == '0':
                 if parsed['params'] != False: return 'Normal assignment cannot have body: params'
 
@@ -162,7 +126,7 @@ class ValidChecker(ParseCheckDecoratorMeta):
             else: return 'Wrong value -> body: flag=' + parsed['flag']          
 
         ## Request Submission List
-        elif order == 'createSubList':
+        elif request == 'SubmissionList':
 
             if parsed['auth'] != 'educator': return 'auth violation'
 
@@ -171,7 +135,7 @@ class ValidChecker(ParseCheckDecoratorMeta):
 
             
         ## Request Submission Content
-        elif order == 'createSubCont':
+        elif request == 'SubmissionContent':
 
             if parsed['auth'] != 'educator': return 'auth violation'
 
@@ -185,32 +149,8 @@ class ValidChecker(ParseCheckDecoratorMeta):
         return 'accepted'
 
     ### ValidChecker 데코레이터 메소드
+    # 데코레이터의 최심부
 
-    def createAssignmentEditor(self, param):
-        validChkResult = self.validCheck(param, 'createAssignmentEditor')
-        if validChkResult == 'accepted': return self.next.event_createAssignmentEditor(param)
-        else                           : return self.next.event_wrongRequestWarning(validChkResult)                     
-
-    def createAssignmentList(self, param):
-        param = self.validCheck(param, 'createAssignmentList')
-        return self.next.createAssignmentEditor(param)
-
-    def createAssignmentCont(self, param):
-        param = self.validCheck(param, 'createAssignmentCont')
-        return self.next.createAssignmentEditor(param)
-
-    def createAssignmentObject(self, param):
-        param = self.validCheck(param, 'createAssignmentObject')
-        return self.next.createAssignmentEditor(param)
-
-    def modifyAssignmentObject(self, param):
-        param = self.validCheck(param, 'modifyAssignmentObject')
-        return self.next.createAssignmentEditor(param)
-
-    def createSubList(self, param):
-        param = self.validCheck(param, 'createSubList')
-        return self.next.createAssignmentEditor(param)
-
-    def createSubCont(self, param):
-        param = self.validCheck(param, 'createSubCont')
-        return self.next.createAssignmentEditor(param)
+    def createPage(self, param):
+        validChkresult = self.validCheck(param)
+        return self.next.activate_event(validChkresult, param)
