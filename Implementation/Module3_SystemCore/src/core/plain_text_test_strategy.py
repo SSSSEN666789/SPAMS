@@ -23,11 +23,14 @@ class PlainTextTestStrategy(TestStrategy):
         answers = ans_str.split('\n')
 
         # JSON object 생성
-        result = []
-        for i in range(0, len(answers)):
-            response = responses[i]
-            answer = answers[i]
-            result.append({"response": response, "isCorrect": response == answer})
+        result = {"succeed": True, "results": []}
+        try:
+            for i in range(0, len(answers)):
+                response = responses[i]
+                answer = answers[i]
+                result["results"].append({"response": response, "isCorrect": response == answer})
+        except:
+            result["succeed"] = False
         json_str = json.dumps(result)
         
         return json_str
