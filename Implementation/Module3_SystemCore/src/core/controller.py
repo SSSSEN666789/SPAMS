@@ -16,6 +16,7 @@ from .python_test_strategy import PythonTestStrategy
 from .plain_text_test_strategy import PlainTextTestStrategy
 from .python_report_render_strategy import PythonReportRenderStrategy
 from .plain_text_report_render_strategy import PlainTextReportRenderStrategy
+from .db_connection import DBConenction
 
 
 
@@ -27,6 +28,8 @@ class Controller():
         self.evalQueue = EvaluationQueue()
         self.evalQueue.enqueue(EvaluationRequest(1, 'example.py', 'example_test.py', 10, 1073741824, 'python'))
         self.evalQueue.enqueue(EvaluationRequest(2, 'example.txt', 'example_test.txt', 10, 1073741824, 'plaintext'))
+
+        self.db = DBConenction()
 
 
     def notify(self, result):
@@ -54,6 +57,7 @@ class Controller():
                     r_strategy = PythonReportRenderStrategy()
                     processor = TestResultProcessor(strategy=r_strategy)
                     report = processor.makeReport(result)
+                    self.db.save(report)
                     testResult = True
                 else:
                     print("runTest Failed")
@@ -68,6 +72,7 @@ class Controller():
                     r_strategy = PlainTextReportRenderStrategy()
                     processor = TestResultProcessor(strategy=r_strategy)
                     report = processor.makeReport(result)
+                    self.db.save(report)
                     testResult = True
                 else:
                     print("runTest Failed")
