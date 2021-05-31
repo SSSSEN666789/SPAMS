@@ -22,7 +22,7 @@ Test Data: RegisterAssignment?auth=educator&class=10&title=알고리즘과제제
 
 Expected Result: flag가 잘못되었음 시스템이 인지하고, 잘못된 flag가 입력되었다는 경고 메시지 생성 및 출력
 
-Result:![TC-2 step1](./img/TC-2 step1.jpg)
+Result:![TC-2 step1](https://user-images.githubusercontent.com/51692363/120154426-d7363100-c22a-11eb-90f4-7596f154cdc4.JPG)
 
 Step 2. Type in an incorrect codepath and  valid other input datas
 
@@ -31,7 +31,7 @@ Test Data: codepath='test'
 
 Expected Result: 코드 경로가 잘못되었음을 시스템이 인지하고, 잘못된 코드 경로가 입력되었다는 경고 메시지 생성 및 출력
 
-Result:![TC-2 step2](./img/TC-2 step2.jpg)
+Result:![TC-2 step2](https://user-images.githubusercontent.com/51692363/120154427-d7cec780-c22a-11eb-861c-8abcbb45934f.JPG)
 
 Step 3. Type in  valid other input datas
 
@@ -39,7 +39,7 @@ Test Date: RegisterAssignment?auth=educator&class=10&title=알고리즘과제제
 
 Expected Result: 시스템이 과제를 생성, 제목 출력, 과제 DB에 저장, 학생에게 알림 발송, 과제 내용 포함한 페이지 출력
 
-Result:![TC-2 step3](./img/TC-2 step3.jpg)
+Result:![TC-2 step3](https://user-images.githubusercontent.com/51692363/120154430-d8675e00-c22a-11eb-8319-0f73f58f536e.JPG)
 
 ------
 

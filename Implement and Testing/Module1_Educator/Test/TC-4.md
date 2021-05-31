@@ -24,7 +24,7 @@ Expected Result: 접근 권한이 잘못되었음을 시스템이 인지하고, 
 
 Result:
 
-![TC-4 step1](./img/TC-4 step1.jpg)
+![TC-4 step1](https://user-images.githubusercontent.com/51692363/120154624-09479300-c22b-11eb-8737-7ba93b6357b4.JPG)
 
 Step 2. Type in an incorrect classID format and valid other input datas.
 
@@ -34,7 +34,7 @@ Expected Result: classID 형식이 잘못되었음을 시스템이 인지하고,
 
 Result:
 
-![TC-4 step2](./img/TC-4 step2.jpg)
+![TC-4 step2](https://user-images.githubusercontent.com/51692363/120154631-09e02980-c22b-11eb-825b-78c494d01c13.JPG)
 
 Step 3. Type in an incorrect classID range and valid other input datas.
 
@@ -44,7 +44,7 @@ Expected Result: classID 범위가 잘못되었음을 시스템이 인지하고,
 
 Result:
 
-![TC-4 step3](./img/TC-4 step3.jpg)
+![TC-4 step3](https://user-images.githubusercontent.com/51692363/120154633-0a78c000-c22b-11eb-92a9-b2ef6f95c607.JPG)
 
 Step 4. Type in a correct classID and valid other input datas
 
@@ -54,7 +54,7 @@ Expected Result: 시스템이 DB에 접근하여 classID에 해당하는 과제�
 
 Result:
 
-![TC-4 step4](./img/TC-4 step4.jpg)
+![TC-4 step4](https://user-images.githubusercontent.com/51692363/120154637-0a78c000-c22b-11eb-8cfd-155727b789e5.JPG)
 
 ------
 

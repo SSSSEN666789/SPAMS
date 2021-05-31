@@ -24,7 +24,7 @@ Expected Result: flag가 잘못되었음 시스템이 인지하고, 잘못된 fl
 
 Result:
 
-![TC-3 step1](./img/TC-3 step1.jpg)
+![TC-3 step1](https://user-images.githubusercontent.com/51692363/120154541-f634c300-c22a-11eb-9590-a686a5d6da1f.JPG)
 
 Step 2. Type in an incorrect codepath and  valid other input datas
 
@@ -33,7 +33,7 @@ Test Data: Test Data: quizpath='test'
 
 Expected Result: 코드 경로가 잘못되었음을 시스템이 인지하고, 잘못된 코드 경로가 입력되었다는 경고 메시지 생성 및 출력
 
-Result:![TC-3 step2](./img/TC-3 step2.jpg)
+Result:![TC-3 step2](https://user-images.githubusercontent.com/51692363/120154545-f6cd5980-c22a-11eb-9c6c-6b1feeea66ec.JPG)
 
 Step 3. Type in  valid other input datas
 
@@ -41,7 +41,7 @@ Test Date: RegisterAssignment?auth=educator&class=10&title=퀴즈제목&cont=퀴
 
 Expected Result: 시스템이 과제를 생성, 제목 출력, 과제 DB에 저장, 학생에게 알림 발송, 과제 내용 포함한 페이지 출력
 
-Result:![TC-3 step3](./img/TC-3 step3.jpg)
+Result:![TC-3 step3](https://user-images.githubusercontent.com/51692363/120154548-f765f000-c22a-11eb-96dd-fc2483245e78.JPG)
 
 ------
 
