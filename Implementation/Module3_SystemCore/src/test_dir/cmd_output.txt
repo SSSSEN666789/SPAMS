@@ -12,11 +12,11 @@ __________________________________ test_fail ___________________________________
     def test_fail():
         e = Example()
         result = e.return_2()
->       assert result == 1
-E       assert 2 == 1
+>       assert result == 2
+E       assert 1 == 2
 
 test_dir/example_test.py:14: AssertionError
 ------------- generated report log file: test_dir/test_result.json -------------
 =========================== short test summary info ============================
-FAILED test_dir/example_test.py::test_fail - assert 2 == 1
-========================= 1 failed, 2 passed in 0.05s ==========================
+FAILED test_dir/example_test.py::test_fail - assert 1 == 2
+========================= 1 failed, 2 passed in 0.07s ==========================
