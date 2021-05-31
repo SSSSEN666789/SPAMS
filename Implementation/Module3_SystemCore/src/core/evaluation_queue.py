@@ -9,13 +9,12 @@ from queue import Queue
 from .evaluation_request import *
 
 
-class evaluationQueue(evaluationRequest):
+class EvaluationQueue():
     def __init__(self):
         self.que = Queue()
-        self.evalReq = evaluationRequest()
 
-    def enqueue(self):
-        self.que.put(self.evalReq)
+    def enqueue(self, request: EvaluationRequest):
+        self.que.put(request)
 
     def dequeue(self):
-        self.evalReq = self.que.get(True)
+        return self.que.get(block=True)

@@ -2,11 +2,15 @@ import os
 import platform
 
 from .test_strategy import TestStrategy
+from .evaluation_request import EvaluationRequest
 
 class PythonTestStrategy(TestStrategy):
-    def executeTest(self):
+    def executeTest(self, request: EvaluationRequest):
+        # 채점 요청에서 필요한 파일명 가져옴
+        tcName = request.testCase
+
         # pytest 실행
-        os.system("pytest test_dir/example_test.py --report-log=test_dir/test_result.json > test_dir/cmd_output.txt")
+        os.system(f"pytest test_dir/{tcName} --report-log=test_dir/test_result.json > test_dir/cmd_output.txt")
 
         # pytest 결과 읽어 들이기
         # json파일에 json object가 하나가 아니라 라인마다 object 하나임에 유의

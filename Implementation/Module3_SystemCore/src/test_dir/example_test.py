@@ -11,4 +11,4 @@ def test_success():
 def test_fail():
     e = Example()
     result = e.return_2()
-    assert result == 1
+    assert result == 2

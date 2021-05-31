@@ -10,34 +10,47 @@
 
 from .test_runner import TestRunner
 from .test_result_processor import TestResultProcessor
-from .evaluation_queue import dequeue
+from .evaluation_queue import EvaluationQueue
+from .evaluation_request import EvaluationRequest
 from .python_test_strategy import PythonTestStrategy
 from .plain_text_test_strategy import PlainTextTestStrategy
 from .python_report_render_strategy import PythonReportRenderStrategy
 from .plain_text_report_render_strategy import PlainTextReportRenderStrategy
-from Implementation.Module3_SystemCore.src.core import test_result_processor
 
 
 
-class contorller():
-    def notify(self):
-        if self == True:           
+class Controller():
+
+    def __init__(self):
+        # 테스트를 위해 큐에 요청을 넣어둠.
+        # 실제 환경에서는 컨트롤러가 아닌 외부에서 큐에 요청을 넣게 됨.
+        self.evalQueue = EvaluationQueue()
+        self.evalQueue.enqueue(EvaluationRequest(1, 'example.py', 'example_test.py', 10, 1073741824, 'python'))
+        self.evalQueue.enqueue(EvaluationRequest(2, 'example.txt', 'example_test.txt', 10, 1073741824, 'plaintext'))
+
+
+    def notify(self, result):
+        if result == True:
             print("AutoGrade Complete")
-        elif self == False:
+        elif result == False:
             print("AutoGrade Fail")
             
 
     def autoGrade(self):
         while True:
+            evalReq = None
             while True:
-                evalReq = dequeue()
+                print('Dequeue request')
+                evalReq = self.evalQueue.dequeue()
                 if evalReq is not None:
                     break
             if evalReq.language == "python":
+                print('Requested lang: Python')
                 t_strategy = PythonTestStrategy()
                 runner = TestRunner(strategy=t_strategy)
-                result = runner.runTest()
+                result = runner.runTest(evalReq)
                 if result is not None:
+                    print('TestRunner result is not None')
                     r_strategy = PythonReportRenderStrategy()
                     processor = TestResultProcessor(strategy=r_strategy)
                     report = processor.makeReport(result)
@@ -46,10 +59,12 @@ class contorller():
                     print("runTest Failed")
                     testResult = False
             elif evalReq.language == "plaintext":
+                print('Requested lang: plain text')
                 t_strategy = PlainTextTestStrategy()
                 runner = TestRunner(strategy=t_strategy)
-                result = runner.runTest()
+                result = runner.runTest(evalReq)
                 if result is not None:
+                    print('TestRunner result is not None')
                     r_strategy = PlainTextReportRenderStrategy()
                     processor = TestResultProcessor(strategy=r_strategy)
                     report = processor.makeReport(result)
