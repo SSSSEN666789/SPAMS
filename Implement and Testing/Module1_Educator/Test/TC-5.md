@@ -28,7 +28,7 @@ Expected Result: assignmentID 형식이 잘못되었음을 시스템이 인지�
 
 Result:
 
-![TC-5 step1](./img/TC-5 step1.JPG)
+![TC-5 step1](./img/TC-5 step1.jpg)
 
 Step 2. Type in an incorrect assignmentID range and valid other input datas.
 
@@ -38,7 +38,7 @@ Expected Result: assignmentID 범위가 잘못되었음을 시스템이 인지�
 
 Result:
 
-![TC-5 step2](./img/TC-5 step2.JPG)
+![TC-5 step2](./img/TC-5 step2.jpg)
 
 Step 3. Type in a correct assignmentID and valid other input datas
 
@@ -48,9 +48,9 @@ Expected Result: 시스템이 DB에 접근하여 assignmentID에 해당하는 �
 
 Result:
 
-![TC-5 step3](./img/TC-5 step3.JPG)
+![TC-5 step3](./img/TC-5 step3.jpg)
 
-![TC-5 step3-2](./img/TC-5 step3-2.JPG)
+![TC-5 step3-2](./img/TC-5 step3-2.jpg)
 
 ------
 
