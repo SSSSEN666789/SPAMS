@@ -16,6 +16,7 @@ QueryParser
 ValidChecker
 
 '''
+import re
 from ParseCheckDecorator_Interface import ParseCheckDecoratorMeta
 
 ###############################################################
@@ -32,20 +33,22 @@ class QueryParser(ParseCheckDecoratorMeta):
     ### QueryParser 전용 메소드
 
     def parseRequest(self, query:str):
-        try:
-            temp = query.split("?")
-            request = temp[0]
-            body = temp[1]
-            if '&' in body: body = body.split('&')
-            else:           body = [body]
-            content = {}
-            for i in range(len(body)): 
-                temp = body[i].split('=')
-                content[temp[0]] = temp[1]
-            return (request, content)
-        except:
-            return ('query format error', content)
 
+        queryformat = '^[^&=?]+\?[^&=?]+=[^&=?]+(&[^&=?]+=[^&=?]+)*$'
+        queryformat = re.compile(queryformat) 
+        if queryformat.match(query.strip()) == None: return ('query format error', {})
+        
+        temp = query.split("?")
+        request = temp[0]
+        body = temp[1]
+        if '&' in body: body = body.split('&')
+        else:           body = [body]
+        content = {}
+        for i in range(len(body)): 
+            temp = body[i].split('=')
+            content[temp[0]] = temp[1]
+        return (request, content)
+        
     ### QueryParser 데코레이터 메소드
 
     def createPage(self, param):
@@ -67,35 +70,86 @@ class ValidChecker(ParseCheckDecoratorMeta):
         if request == 'query format error': return 'query format error'
         if 'auth' not in parsed: return 'body: auth is not exist.'
         if 'class' not in parsed: return 'body: class is not exist.'
-        #if 강의실 DB에 입력한 강의실ID에 해당하는 강의실이 없는 경우: return 'Cannot find 입력ID in Class DB'
+
+
+        ## 타입 별 포멧 체크 ##
+        # TC-1 Step3, Step 4: class 
+        # Tc-1 Step5        : title
+        # TC-1 Step7, Stpe 8: score
+        # TC-5 Step1, Step 2: assignment
+        # TC는 없지만        : submission
+        # TC-1 Step9        : file
+        # TC-2 Step2        : code
+        # TC-3 Step2        : quiz
         
+        if 'class' in parsed:
+            try: 
+                if int(parsed['class']) < 0 : return 'body: class ID cannot be negative integer.'
+            except: return 'body: class ID should be positive integer or 0.'
+
+        if parsed['title'].strip() == '': return 'body: title cannot be blank.'
+
+        if 'score' in parsed:
+            try: 
+                if float(parsed['score']) < 0 : return 'body: score cannot be negative number.'
+            except: return 'body: score should be positive number or 0.'
+
+        if 'assignment' in parsed:
+            try: 
+                if int(parsed['assignment']) < 0 : return 'body: assignment ID cannot be negative integer.'
+            except: return 'body: assignment ID should be positive integer or 0.'
+
+        if 'submission' in parsed:
+            try: 
+                if int(parsed['submission']) < 0 : return 'body: submission ID cannot be negative integer.'
+            except: return 'body: submission ID should be positive integer or 0.'
+        
+        file_regexp = '^((?:\/[a-zA-Z0-9]+(?:_[a-zA-Z0-9]+)*(?:\-[a-zA-Z0-9]+)*)+)$'
+        file_regexp = re.compile(file_regexp)
+
+        if 'file' in parsed:
+            if file_regexp.match(parsed['file']) == None:
+                if parsed['file'] != 'testpath': return 'body: file is Unvalid path.'
+
+        if 'code' in parsed:
+            if file_regexp.match(parsed['code']) == None:
+                if parsed['code'] != 'testpath': return 'body: code is Unvalid path.'
+
+        if 'quiz' in parsed:
+            if file_regexp.match(parsed['file']) == None:
+                if parsed['code'] != 'testpath': return 'body: code is Unvalid path.'
+
         ## 메소드 별 검사 항목 ##
+
+        body_length = len(parsed)
 
         ## AssignmentEditorNew
         if request == 'AssignmentEditorNew':
             if parsed['auth'] != 'educator': return 'auth violation'
+            if body_length != 2: return 'too many input.'
+
 
         ## AssignmentEditorModify
         elif request == 'AssignmentEditorModify':
             if parsed['auth'] != 'educator': return 'auth violation'
             if 'assignment' not in parsed: return 'body: assignment is not exist.'
-            #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
+            if body_length != 3: return 'too many input.'
             
         ## AssignmentList
         elif request == 'AssignmentList':
-
             if parsed['auth'] != 'educator': return 'auth violation'
+            if body_length != 2: return 'too many input.'
                        
         ## AssignmentContent
         elif request == 'AssignmentContent':
-
             if not(parsed['auth'] == 'educator' or parsed['auth'] == 'student'): return 'auth violation'
-
             if 'assignment' not in parsed: return 'body: assignment is not exist.'
-            #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
-             
+            if body_length != 3: return 'too many input.'
+                         
         ## RegisterAssignment & ModifyAssignment
         elif (request == 'RegisterAssignment') or (request == 'ModifyAssignment'): 
+            
+            correct_body_length = 9
 
             if parsed['auth'] != 'educator': return 'auth violation'
 
@@ -106,10 +160,11 @@ class ValidChecker(ParseCheckDecoratorMeta):
             if 'file' not in parsed: return 'body: file is not exist.'
             if 'flag' not in parsed: return 'body: flag is not exist.'
             if 'params' not in parsed: return 'body: params is not exist.'
-
+            
             if request == 'ModifyAssignment':
                 if 'assignment' not in parsed: return 'body: assignment is not exist'
-                #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
+                correct_body_length += 1
+
 
             ## deadline chk
             deadline = parsed['deadline'].split('-')
@@ -119,7 +174,16 @@ class ValidChecker(ParseCheckDecoratorMeta):
             if len(deadline[1]) == 2: d_res -= 1
             if len(deadline[2]) == 2: d_res -= 1
             if d_res > 0: return 'Wrong format -> body: deadline'
-            #if deadline을 과거로 잡으려고 할 때: return 'Wrong date -> body: deadline=' + parsed['deadline']
+
+            # TC-1 Step 6
+            else:
+                from datetime import datetime
+                try: 
+                    deadline = list(map(int, deadline))
+                    td = datetime.today()
+                    dl = datetime(deadline[0], deadline[1], deadline[2])
+                    if td > dl: return 'body: deadline should be later then today.'
+                except: return 'Wrong format -> body: deadline'
 
             ## flag chk
             if str(parsed['flag']) == '0':
@@ -128,22 +192,24 @@ class ValidChecker(ParseCheckDecoratorMeta):
             elif str(parsed['flag']) == '1':
                 if 'code' not in parsed: return 'body: code is not exist.'
                 if 'openbound' not in parsed: return 'body: openbound is not exist.'
+                correct_body_length += 2
 
             elif str(parsed['flag']) == '2':
                 if 'quiz' not in parsed: return 'body: quiz is not exist.'
                 if 'openanswer' not in parsed: return 'body: quiz is not exist'
+                correct_body_length += 2
 
             else: return 'Wrong value -> body: flag=' + parsed['flag']          
+
+            if correct_body_length != body_length: return 'too many input.'
 
         ## SubmissionList
         elif request == 'SubmissionList':
 
             if parsed['auth'] != 'educator': return 'auth violation'
-
             if 'assignment' not in parsed: return 'body: assignment is not exist.'
-            #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
+            if body_length != 3: return 'too many input.'
 
-            
         ## SubmissionContent
         elif request == 'SubmissionContent':
 
@@ -151,8 +217,7 @@ class ValidChecker(ParseCheckDecoratorMeta):
 
             if 'assignment' not in parsed: return 'body: assignment is not exist.'
             if 'submission' not in parsed: return 'body: submission is not exist.'
-            #if 과제 DB에 입력한 과제ID에 해당하는 과제가 없는 경우: return 'Cannot find 입력ID in Assignment DB'
-            #if 제출물 DB에 입력한 제출물ID에 해당하는 제출물이 없는 경우: return 'Cannot find 입력ID in Submission DB'
+            if body_length != 4: return 'too many input.'
 
         else: return 'Wrong method'
 
