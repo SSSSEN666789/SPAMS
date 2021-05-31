@@ -24,7 +24,7 @@ Expected Result: assignmentID 형식이 잘못되었음을 시스템이 인지�
 
 Result:
 
-![TC-5 step1](/img/TC-5%20step1.JPG)
+![TC-5 step1](https://user-images.githubusercontent.com/51692363/120156298-d3a3a980-c22c-11eb-9593-1b5f9856c959.JPG)
 
 Step 2. Type in an incorrect assignmentID range and valid other input datas.
 
@@ -34,7 +34,7 @@ Expected Result: assignmentID 범위가 잘못되었음을 시스템이 인지�
 
 Result:
 
-![TC-5 step2](/img/TC-5%20step2.JPG)
+![TC-5 step2](https://user-images.githubusercontent.com/51692363/120156301-d43c4000-c22c-11eb-89fe-8a1f8170f93d.JPG)
 
 Step 3. Type in a correct assignmentID and valid other input datas
 
@@ -44,9 +44,9 @@ Expected Result: 시스템이 DB에 접근하여 assignmentID에 해당하는 �
 
 Result:
 
-![TC-5 step3](/img/TC-5%20step3.JPG)
+![TC-5 step3](https://user-images.githubusercontent.com/51692363/120156303-d4d4d680-c22c-11eb-8c9b-5544fb05c2d7.JPG)
 
-![TC-5 step3-2](./img/TC-5%20step3-2.jpg)
+![TC-5 step3-2](https://user-images.githubusercontent.com/51692363/120156307-d56d6d00-c22c-11eb-8216-099ffbe572f3.JPG)
 
 ------
 
@@ -55,3 +55,4 @@ Result:
 #### Failed: Stpe1, Step2
 
 assignmentID의 형식과 범위가 잘못되었음에도 오류로 인식 못함.
+

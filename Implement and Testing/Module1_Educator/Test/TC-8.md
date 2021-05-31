@@ -25,7 +25,7 @@ Expected Result: 코드 경로가 잘못되었음을 시스템이 인지하고, 
 
 Result:
 
-![TC-8 step1](img/TC-8%20step1.jpg)
+![TC-8 step1](https://user-images.githubusercontent.com/51692363/120156618-1b2a3580-c22d-11eb-8f2c-1870ab865326.JPG)
 
 Step 2. Type in valid other input datas
 
@@ -35,7 +35,7 @@ Expected Result: 시스템이 과제를 생성, 제목 출력, 과제 DB에 저�
 
 Result:
 
-![TC-8 step2](img/TC-8%20step2.jpg)
+![TC-8 step2](https://user-images.githubusercontent.com/51692363/120156623-1bc2cc00-c22d-11eb-81b5-16c13e74a085.JPG)
 
 ------
 

@@ -24,7 +24,7 @@ Expected Result:  요청이 잘못되었음을 시스템이 인지하고 경고 
 
 Result:
 
-![TC-6 step1](img/TC-6%20step1.jpg)
+![TC-6 step1](https://user-images.githubusercontent.com/51692363/120156423-eddd8780-c22c-11eb-97fd-61b2a8a9ec00.JPG)
 
 Step 2. Type in an incorrect Author and  valid other input datas
 
@@ -34,7 +34,7 @@ Expected Result: 접근 권한이 잘못되었음을 시스템이 인지하고, 
 
 Result:
 
-![TC-6 step2](img/TC-6%20step2.jpg)
+![TC-6 step2](https://user-images.githubusercontent.com/51692363/120156425-eddd8780-c22c-11eb-8de7-6d95d6987368.JPG)
 
 Step 3. Type in an incorrect classID and  valid other input datas
 
@@ -44,7 +44,7 @@ Expected Result: classID가 잘못되었음을 시스템이 인지하고, 접근
 
 Result:
 
-![TC-6 step3](img/TC-6%20step3.jpg)
+![TC-6 step3](https://user-images.githubusercontent.com/51692363/120156426-ee761e00-c22c-11eb-8ca1-6f89fbca73b1.JPG)
 
 Step 4. Type in an incorrect assignmentID and  valid other input datas
 
@@ -54,7 +54,7 @@ Expected Result: assignmentID가 잘못되었음을 시스템이 인지하고, �
 
 Result:
 
-![TC-6 step4](img/TC-6%20step4.jpg)
+![TC-6 step4](https://user-images.githubusercontent.com/51692363/120156428-ee761e00-c22c-11eb-9932-d6439958dd14.JPG)
 
 Step 5. Type in blank in title and  valid other input datas
 
@@ -64,7 +64,7 @@ Expected Result: 과제 제목이 입력되지 않았음을 시스템이 인지�
 
 Result:
 
-![TC-6 step5](img/TC-6%20step5.jpg)
+![TC-6 step5](https://user-images.githubusercontent.com/51692363/120156430-ef0eb480-c22c-11eb-9550-b7a9cc628cdc.JPG)
 
 Step 6. Type in an incorrect deadline and  valid other input datas
 
@@ -74,7 +74,7 @@ Expected Result: 지정할 수 없는 마감일이 지정되었음을 시스템�
 
 Result:
 
-![TC-6 step6](img/TC-6%20step6.jpg)
+![TC-6 step6](https://user-images.githubusercontent.com/51692363/120156432-ef0eb480-c22c-11eb-9de4-38e082199cd2.JPG)
 
 Step 7. Type in a character score value and  valid other input datas
 
@@ -84,7 +84,7 @@ Expected Result: 잘못된 형식의 점수가 입력되었음을 시스템이 �
 
 Result:
 
-![TC-6 step7](img/TC-6%20step7.jpg)
+![TC-6 step7](https://user-images.githubusercontent.com/51692363/120156435-efa74b00-c22c-11eb-9f2d-2124a9d11ce8.JPG)
 
 Step 8. Type in an incorrect score value and  valid other input datas
 
@@ -94,7 +94,7 @@ Expected Result: 잘못된 범위의 점수가 입력되었음을 시스템이 �
 
 Result:
 
-![TC-6 step8](img/TC-6%20step8.jpg)
+![TC-6 step8](https://user-images.githubusercontent.com/51692363/120156437-efa74b00-c22c-11eb-991e-b1f1aab46c78.JPG)
 
 Step 9. Type in an invalid filepath and  valid other input datas
 
@@ -105,7 +105,7 @@ Expected Result: 잘못된 파일 경로가 입력되었음을 시스템이 인�
 
 Result:
 
-![TC-6 step9](img/TC-6%20step9.jpg)
+![TC-6 step9](https://user-images.githubusercontent.com/51692363/120156440-f03fe180-c22c-11eb-9c89-f39df4ddc21f.JPG)
 
 ------
 

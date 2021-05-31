@@ -25,7 +25,7 @@ Expected Result: 코드 경로가 잘못되었음을 시스템이 인지하고, 
 
 Result:
 
-![TC-7 step1](img/TC-7%20step1.jpg)
+![TC-7 step1](https://user-images.githubusercontent.com/51692363/120156567-0fd70a00-c22d-11eb-9e9b-f4459115c480.JPG)
 
 Step 2. Type in a correct deadline and valid other input datas
 
@@ -35,7 +35,7 @@ Expected Result: 시스템이 과제를 생성, 제목 출력, 과제 DB에 저�
 
 Result:
 
-![TC-7 step2](img/TC-7%20step2.jpg)
+![TC-7 step2](https://user-images.githubusercontent.com/51692363/120156572-11083700-c22d-11eb-935d-416acfc90d01.JPG)
 
 ------
 
