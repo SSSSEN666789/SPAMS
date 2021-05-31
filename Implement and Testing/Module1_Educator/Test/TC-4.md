@@ -46,6 +46,8 @@ Result:
 
 ![TC-4 step3](https://user-images.githubusercontent.com/51692363/120154633-0a78c000-c22b-11eb-92a9-b2ef6f95c607.JPG)
 
+
+
 Step 4. Type in a correct classID and valid other input datas
 
 ex)AssignmentList?auth=educator&class=10
@@ -63,3 +65,4 @@ Result:
 #### Failed: Step2, Step3
 
 classID의 형식과 범위가 잘못된 것을 오류로 인식못함.
+
