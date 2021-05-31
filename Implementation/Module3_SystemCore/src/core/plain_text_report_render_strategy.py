@@ -1,4 +1,6 @@
+from datetime import datetime
 import json
+import datetime
 
 from .report_render_strategy import ReportRenderStrategy
 
@@ -12,13 +14,14 @@ class PlainTextReportRenderStrategy(ReportRenderStrategy):
         wrong_cnt = len(list(filter(lambda r: r['isCorrect'] == False, result)))
         
         # HTML 렌더링
-        html = """
+        html = f"""
         <html>
         <head>
         <meta charset="UTF-8">
         </head>
         <body>
         <h1>자동채점 리포트</h1>
+        <p>{datetime.datetime.now()}</p>
         """
         
         html += f"""
@@ -57,6 +60,8 @@ class PlainTextReportRenderStrategy(ReportRenderStrategy):
         """
     
         # 마무리
-        report = open("test_dir/plain_report.html", "w")
+        report_location = "test_dir/plain_report.html"
+        report = open(report_location, "w")
         report.write(html)
         report.close()
+        return report_location
