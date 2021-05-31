@@ -1,6 +1,31 @@
+
+
 # Class Diagram for Module 1
 
-![classdiagram_total](img/ClassDiagramTotal.png)
+__3차 체크포인트 최종본__
+
+![classdiagram_total2](img/ClassDiagramTotal2.png)
+
+구현 및 테스팅 단계에서 수정된 사항을 반영한 3차 체크포인트 최종본.
+
+데코레이터는 쿼리의 파싱 및 포맷 검사에 중점을 두고 있다.
+쿼리 자체에 request내용을 담아두면, 쿼리를 분석하는 과정에서 자연스럽게 request 판단이 될 것이고, 
+각 데코레이터들이 굳이 모든 경우의 메소드를 담고 있을 필요가 없다. 그 경우 오히려 유지보수 면에서 복잡하고 귀찮아진다.
+
+EventManager의 경우 subscribers로 표기되어있긴 하나, 각 이벤트 별 subscriber를 따로 저장한다.
+또 구독자 object들이 어떤 event를 구독하는지를 각 subscriber object의 public 메소드로 표시하였다.
+
+그 외, 구현 및 테스팅 과정에서 생긴 이벤트 분류 변화, 파라미터 타입 변화를 반영하였는데,
+변수의 타입을 따로 지정하지 않는 파이썬의 특성상 Class Diagram에서의 파라미터 표시는 크게 의미는 없어보인다.
+전체적으로는 그냥 Object타입이라고 보면 되지만, 
+세부적으로는 str -> List[str, dictionary] -> 경우에 따라 str 혹은 dictionary 이렇게 매우 유동적으로 타입이 변한다.
+하지만 전체적으로 어떻게 변해가는지 그림으로 파악할 수 있으면 좋을 것이라 생각하여 Class Diagram에 반영하였다.
+
+-------
+
+__2차 체크포인트 최종본__
+
+![classdiagram_total1](img/ClassDiagramTotal1.png)
 
 2차 체크포인트에 대한 Class Diagram 최종본.
 
@@ -32,7 +57,7 @@ __추가적인 고려사항__
 
 이렇게 각각 다루고 있는 내용에 따라 소규모 그룹화 하여 class diagram을 작성하는 것을 고려할 수 있다. 실제 구현에서 이를 적용한다면, 리퀘스트와 event를 기준으로 서버를 분할하여 병목현상을 완화시킬 수도 있을 것이다.
 
-
+-------
 
 ##### 초안 
 
