@@ -17,7 +17,7 @@ Module2의 제출물 제출 및 재제출 implementation에서 있는 "제출 �
 PageMaker가 호출이되어서 작동을 하기시작하면 콘솔창에 Rendering Result를 하는중이라는 메세지를 띄운다.
 
 ### 정상 작동 결과값
-![properResult](img/properResult.png)
+![properResult](img/properResult.PNG)
 
 정상적인 요청을 하였을시 이런식으로 학생이 요청한 제출물에 대한 결과값들을 제공한다. 
 
